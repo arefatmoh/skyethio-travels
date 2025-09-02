@@ -109,7 +109,214 @@
       "title": "ጉዞዎን ለመጀመር ዝግጁ ነዎት?",
       "subtitle": "ለጉዞ ፍላጎታቸው SkyEthio ን የሚያምኑ ሺህ የሚቆጠሩ ደስ የሚሉ ጉዞ አድራሻዎች ይቀላቀሉ። የጥራት አገልግሎት ልዩነትን ያስተንትኑ።",
       "learnMore": "ስለ እኛ ተጨማሪ ይወቁ",
-      "contactUs": "ያግኙን"
+      "contactUs": "ያናግሩን"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "የጥራት የጉዞ አገልግሎቶች",
+      "subtitle": "ጉዞዎ ያለ ችግር እና የሚረሳ እንዲሆን የተዘጋጀ የጉዞ እና የጥራት አገልግሎቶች ሁሉ ይግለጹ",
+      "bookNow": "አሁን ያያዙ",
+      "getQuote": "ዋጋ ያግኙ"
+    },
+    "serviceItems": {
+      "hotelBooking": {
+        "title": "የሆቴል ማዘዣ",
+        "description": "የጥራት መኖሪያ ቤቶች በዓለም ዙሪያ ከልዩ ዋጋዎች እና የጥራት ቦታዎች ጋር",
+        "features": {
+          "feature1": "5-ኮከብ ሆቴሎች",
+          "feature2": "የተሻሻለ ዋጋ ዋስትና",
+          "feature3": "24/7 የሆቴል አገልግሎት",
+          "feature4": "የሚስተካከል ማስወገድ"
+        }
+      },
+      "roundTripTickets": {
+        "title": "የመሄድ እና መመለስ ትኬቶች",
+        "description": "ያለ ችግር የመሄድ እና መመለስ ስሜት ከየሚስተካከሉ የጊዜ ማዘዣ እና የጥራት አየር መንገዶች ጋር",
+        "features": {
+          "feature1": "የሚስተካከሉ ቀናት",
+          "feature2": "የጥራት አየር መንገዶች",
+          "feature3": "የመቀመጫ ምርጫ",
+          "feature4": "የምግብ ምርጫዎች"
+        }
+      },
+      "oneWayTickets": {
+        "title": "የአንድ መንገድ ትኬቶች",
+        "description": "የሚስተካከሉ የአንድ መንገድ የጉዞ አማራጮች ለተለጠፈ የእንቅስቃሴ ጊዜ እና የንግድ ጉዞዎች",
+        "features": {
+          "feature1": "የመጨረሻ ጊዜ ማዘዣ",
+          "feature2": "ብዙ አየር መንገዶች",
+          "feature3": "ውድድር ዋጋዎች",
+          "feature4": "ቀላል የመልስ ማዘዣ"
+        }
+      },
+      "medicalSlip": {
+        "title": "የሕክምና ወረቀት",
+        "description": "የዓለም ጉዞ ለሚያደርግ ሰው ሁለገብ የጤና ሰነድ ድጋፍ",
+        "features": {
+          "feature1": "የጤና ሰራዊት",
+          "feature2": "የማህጸን መዝገቦች",
+          "feature3": "የሕክምና ፈተና",
+          "feature4": "የባለሙያ መመሪያ"
+        }
+      },
+      "touristVisa": {
+        "title": "የቱሪስት ቪዛ",
+        "description": "ዓለምን በቀላሉ ያስሱ በእኛ ሁለገብ የቪዛ ድጋፍ አማካኝነት",
+        "features": {
+          "feature1": "የሰነድ ዝግጅት",
+          "feature2": "የመግቢያ መከታተል",
+          "feature3": "የባለሙያ ውይይት",
+          "feature4": "ፈጣን ስራ"
+        }
+      },
+      "businessVisa": {
+        "title": "የንግድ ቪዛ",
+        "description": "የንግድ ማስፋፋት እና የድርጅት ፍላጎቶች ለሚያሟሉ የስራ ጉዞ መፍትሄዎች",
+        "features": {
+          "feature1": "የድርጅት ጥቅል",
+          "feature2": "የተሻሻለ ስራ",
+          "feature3": "ብዙ ግብይት",
+          "feature4": "የተለየ ድጋፍ"
+        }
+      },
+      "cargoServices": {
+        "title": "የጥራት አገልግሎቶች",
+        "description": "የግል እና የንግድ የጥራት ፍላጎቶች ለሚያሟሉ የተማፀነ የጥራት መፍትሄዎች",
+        "features": {
+          "feature1": "ከግማሽ እስከ ግማሽ አቅራቢያ",
+          "feature2": "በትክክለኛ ጊዜ መከታተል",
+          "feature3": "ደህንነቱ የተጠበቀ ማጠቃለያ",
+          "feature4": "የድጋፍ ሽፋን"
+        }
+      },
+      "support24_7": {
+        "title": "24/7 ድጋፍ",
+        "description": "ለሁሉም የጉዞ እና የጥራት ጥያቄዎችዎ በጊዜ ሁሉ የሚሰጥ ድጋፍ",
+        "features": {
+          "feature1": "የቀጥታ ውይይት ድጋፍ",
+          "feature2": "የድንገት ድጋፍ",
+          "feature3": "ብዙ ቋንቋ",
+          "feature4": "የባለሙያ አማካሪዎች"
+        }
+      }
+    },
+    "whyChooseUs": {
+      "title": "ለምን SkyEthio ን እንድንመርጥ?",
+      "subtitle": "የጥራት አገልግሎቶቻችን እና የተለየ ድጋፍ አማካኝነት ልዩነቱን ያስተንትኑ",
+      "premiumQuality": {
+        "title": "የጥራት ጥራት",
+        "description": "የምንሰጥ ስሜት የሚገርም እንዲሆን ከምርጥ አየር መንገዶች እና ሆቴሎች ጋር እንሰራለን።"
+      },
+      "trustedSecure": {
+        "title": "የሚያምን እና ደህንነቱ የተጠበቀ",
+        "description": "ደህንነትዎ እና ደህንነትዎ የእኛ ዋና ቅድመ ሁኔታዎች ናቸው። ሁሉም ግብይቶች የተጠበቁ እና የተመሰጠሩ ናቸው።"
+      },
+      "support24_7": {
+        "title": "24/7 ድጋፍ",
+        "description": "የእኛ የተለየ የድጋፍ ቡድን ለማንኛውም ጥያቄ ወይም ስጋት በጊዜ ሁሉ ይገኛል።"
+      }
+    },
+    "cta": {
+      "title": "የጥራት ጉዞ ለመስራት ዝግጁ ነዎት?",
+      "subtitle": "እርስዎ በጣም አስፈላጊ ነው የሚለውን ለመስተካከል እንድንሰራ ያድርጉ - ጉዞዎ እና መድረሻዎ።",
+      "startJourney": "ጉዞዎን ያጀምሩ",
+      "contactExpert": "ባለሙያ ያግኙ"
+    },
+    "badges": {
+      "bestForBusiness": "ለንግድ ምርጥ",
+      "popular": "የተወደደ",
+      "new": "አዲስ"
+    },
+    "proceed": "ይቀጥሉ"
+  },
+  "bookTicket": {
+    "hero": {
+      "title": "የበረራ ትኬትዎን ያያዙ",
+      "subtitle": "ከዚህ በታች ያለውን ቅጽ ያስገቡ እና ለጉዞዎ ምርጥ ዋጋዎችን እናገኛለን"
+    },
+    "form": {
+      "title": "የበረራ ማዘዣ ቅጽ",
+      "personalInfo": {
+        "title": "የግል መረጃ",
+        "fullName": "ሙሉ ስም *",
+        "fullNamePlaceholder": "ሙሉ ስምዎን ያስገቡ",
+        "phone": "የስልክ ቁጥር *",
+        "phonePlaceholder": "+251 XXX XXX XXX",
+        "email": "የኢሜይል አድራሻ *",
+        "emailPlaceholder": "your.email@example.com",
+        "passportNumber": "የፓስፖርት ቁጥር *",
+        "passportNumberPlaceholder": "የፓስፖርት ቁጥር ያስገቡ"
+      },
+      "tripType": {
+        "title": "የጉዞ አይነት",
+        "roundTrip": "የመሄድ እና መመለስ",
+        "oneWay": "የአንድ መንገድ"
+      },
+      "flightDetails": {
+        "title": "የበረራ ዝርዝሮች",
+        "departure": "የመሄድ ከተማ *",
+        "departurePlaceholder": "ለምሳሌ፣ አዲስ አበባ",
+        "destination": "መድረሻ *",
+        "destinationPlaceholder": "ለምሳሌ፣ ዱባይ",
+        "departureDate": "የመሄድ ቀን *",
+        "returnDate": "የመመለስ ቀን *",
+        "selectDate": "ቀን ይምረጡ",
+        "stayDays": "መቆያ: {days} ቀን{days === 1 ? '' : 'ዎች'}",
+        "preferredAirline": "የተሻፈረ አየር መንገድ",
+        "selectAirline": "አየር መንገድ ይምረጡ",
+        "passengers": "ጉዞ አድራሻዎች",
+        "class": "ክፍል",
+        "economy": "ኢኮኖሚ",
+        "business": "ንግድ",
+        "first": "መጀመሪያ"
+      },
+      "additionalNotes": {
+        "title": "ተጨማሪ ማስታወሻዎች (የሚስተካከል)",
+        "placeholder": "ማንኛውም ልዩ ጥያቄ ወይም ተጨማሪ መረጃ..."
+      },
+      "passportUpload": {
+        "title": "ፓስፖርት/መታወቂያ (የሚስተካከል)",
+        "clickToUpload": "ለመጫን ይጫኑ ወይም PDF",
+        "addFile": "ፋይል ያክሉ"
+      },
+      "submit": {
+        "button": "የማዘዣ ጥያቄ ያስገቡ",
+        "processing": "ይሰራል..."
+      }
+    },
+    "summary": {
+      "title": "የእርስዎ ማጠቃለያ",
+      "name": "ስም",
+      "phone": "ስልክ",
+      "email": "ኢሜይል",
+      "passportNumber": "ፓስፖርት #",
+      "route": "መንገድ",
+      "dates": "ቀናት",
+      "passengers": "ጉዞ አድራሻዎች",
+      "class": "ክፍል",
+      "airline": "አየር መንገድ",
+      "passportPreview": "የፓስፖርት ቅድመ ዕይታ"
+    },
+    "success": {
+      "title": "የማዘዣ ጥያቄ ተላክቷል!",
+      "message": "SkyEthio Travels ን ስለመረጡ እናመሰግናለን። የማዘዣ ዝርዝሮችዎን ለማረጋገጥ በ24 ሰዓታት ውስጥ እንደያያለን።",
+      "bookAnother": "ሌላ ትኬት ያያዙ"
+    },
+    "contact": {
+      "needAssistance": "ወቅታዊ ድጋፍ ይፈልጋሉ?",
+      "phone1": "+251 962 765 453",
+      "phone2": "+251 722 765 453"
+    },
+    "validation": {
+      "fullNameRequired": "ሙሉ ስም ያስፈልጋል።",
+      "phoneRequired": "የስልክ ቁጥር ያስፈልጋል።",
+      "emailRequired": "የሚሰራ ኢሜይል ያስፈልጋል።",
+      "passportRequired": "የፓስፖርት ቁጥር ያስፈልጋል።",
+      "departureRequired": "የመሄድ ከተማ ያስፈልጋል።",
+      "destinationRequired": "መድረሻ ያስፈልጋል።",
+      "departureDateRequired": "የመሄድ ቀን ያስፈልጋል።",
+      "returnDateRequired": "የመመለስ ቀን ያስፈልጋል።"
     }
   },
   "about": {
@@ -159,6 +366,223 @@
         "በዲጂታል ዘመናዊ፣ በሰው ሰው ልብ ያለው",
         "ዘላቂ እድገት እና የማህበረሰብ ተጽዕኖ"
       ]
+    },
+    "team": {
+      "title": "የእኛ ተሰማራይ ቡድን",
+      "subtitle": "እያንዳንዱ የተሳካለ ጉዞ ሰው እንደሚለው የሚሰራ የተሞክረ ባለሙያዎች ቡድናችን ነው፣ የጉዞ እና የጥራት ፍላጎቶችዎ በትክክለኛ ጊዜ እና በጥንቃቄ እንዲሟሉ በጊዜ ሁሉ ይሰራሉ።",
+      "stats": {
+        "happyCustomers": "ደስ የሚሉ ደንበኞች",
+        "destinations": "መድረሻዎች",
+        "customerSupport": "የደንበኛ ድጋፍ"
+      }
+    },
+    "motto": {
+      "title": "የእኛ መጥምቀት",
+      "text": "የሚያምን ሁን",
+      "description": "ይህ ቀላል ነገር ግን ኃይለኛ መርሆ የምንሰራቸውን ሁሉ ውሳኔ ያመራል እና የምንሰጥ ሁሉ አገልግሎት። እምነት የሁሉም ትልልት ግንኙነቶች መሰረት ነው፣ እና የእርስዎን እምነት ማግኘት እንደምንችል እንደምንገዛ ነው።"
+    }
+  },
+  "visaApplication": {
+    "hero": {
+      "title": "የቪዛ ማመልከቻ",
+      "subtitle": "የቪዛ ማመልከቻዎን ከባለሙያ ድጋፍ እና የተሻሻለ ሂደት ጋር ያስገቡ"
+    },
+    "form": {
+      "title": "የቪዛ ማመልከቻ ቅጽ",
+      "visaInfo": {
+        "title": "የቪዛ መረጃ",
+        "visaType": "የቪዛ አይነት *",
+        "selectVisaType": "የቪዛ አይነት ይምረጡ",
+        "touristVisa": "የቱሪስት ቪዛ",
+        "businessVisa": "የንግድ ቪዛ",
+        "duration": "የቪዛ ጊዜ *",
+        "durationPlaceholder": "ለምሳሌ፣ 30 ቀናት፣ 90 ቀናት"
+      },
+      "contactInfo": {
+        "title": "የመገናኛ መረጃ",
+        "email": "የኢሜይል አድራሻ *",
+        "emailPlaceholder": "your.email@example.com"
+      },
+      "requiredDocuments": {
+        "title": "የሚያስፈልጉ ሰነዶች",
+        "bankStatement": "የባንክ መግለጫ *",
+        "uploadBankStatement": "የባንክ መግለጫዎን ያስገቡ",
+        "fileTypes": "PDF ወይም የምስል ፋይሎች ብቻ"
+      },
+      "passportDetails": {
+        "title": "የፓስፖርት ዝርዝሮች",
+        "fullName": "ሙሉ ስም (እንደ ፓስፖርት) *",
+        "fullNamePlaceholder": "ሙሉ ስም ያስገቡ",
+        "age": "ዕድሜ *",
+        "agePlaceholder": "ዕድሜ ያስገቡ",
+        "birthYear": "የመወለድ ዓመት *",
+        "birthYearPlaceholder": "ዓ.ም",
+        "passportNumber": "የፓስፖርት ቁጥር *",
+        "passportNumberPlaceholder": "የፓስፖርት ቁጥር ያስገቡ",
+        "passportCopy": "የፓስፖርት ቅጂ *",
+        "uploadPassportCopy": "የፓስፖርት ቅጂ ያስገቡ"
+      },
+      "additionalInfo": {
+        "title": "ተጨማሪ መረጃ",
+        "placeholder": "ማንኛውም ተጨማሪ መረጃ ወይም ልዩ ጥያቄዎች..."
+      },
+      "submit": {
+        "button": "የቪዛ ማመልከቻ ያስገቡ",
+        "processing": "ማመልከቻ ይሰራል..."
+      }
+    },
+    "summary": {
+      "title": "የእርስዎ ማጠቃለያ",
+      "visaType": "የቪዛ አይነት",
+      "duration": "ጊዜ",
+      "name": "ስም",
+      "email": "ኢሜይል",
+      "age": "ዕድሜ",
+      "birthYear": "የመወለድ ዓመት",
+      "passportNumber": "ፓስፖርት #",
+      "bankStatement": "የባንክ መግለጫ",
+      "passportCopy": "የፓስፖርት ቅጂ"
+    },
+    "success": {
+      "title": "ማመልከቻ ተላክቷል!",
+      "message": "የቪዛ ማመልከቻዎ ተቀብሏል። ቡድናችን ሰነዶችዎን ያስመለክታል እና በ2-3 የስራ ቀናት ውስጥ ያገኝዎታል።",
+      "submitAnother": "ሌላ ማመልከቻ ያስገቡ"
+    },
+    "contact": {
+      "questions": "ስለ የቪዛ ማመልከቻዎ ጥያቄዎች አሉዎት?",
+      "phone1": "+251 962 765 453",
+      "phone2": "+251 722 765 453"
+    },
+    "validation": {
+      "visaTypeRequired": "የቪዛ አይነት ያስፈልጋል።",
+      "durationRequired": "ጊዜ ያስፈልጋል።",
+      "emailRequired": "የሚሰራ ኢሜይል ያስፈልጋል።",
+      "fullNameRequired": "ሙሉ ስም ያስፈልጋል።",
+      "ageRequired": "የሚሰራ ዕድሜ ያስፈልጋል።",
+      "birthYearRequired": "የሚሰራ የመወለድ ዓመት ያስፈልጋል።",
+      "passportRequired": "የፓስፖርት ቁጥር ያስፈልጋል።",
+      "bankFileRequired": "የባንክ መግለጫ ያስፈልጋል።",
+      "passportFileRequired": "የፓስፖርት ቅጂ ያስፈልጋል።"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "ያናግሩን",
+      "subtitle": "ለማንኛውም ጥያቄ ወይም የጉዞ እርዳታ ከቡድናችን ጋር ያግኙ"
+    },
+    "contactInfo": {
+      "title": "ያናግሩን",
+      "phone": {
+        "title": "24/7 የመገናኛ ቁጥሮች",
+        "phone1": "+251 962 765 453",
+        "phone2": "+251 722 765 453"
+      },
+      "email": {
+        "title": "ኢሜይል ያስገቡ",
+        "address": "info@skyethio.com"
+      },
+      "location": {
+        "title": "የቢሮ አድራሻ",
+        "address": "አቢነት፣ አዲስ አበባ",
+        "country": "ኢትዮጵያ"
+      },
+      "hours": {
+        "title": "የስራ ሰዓታት",
+        "weekdays": "ሰኞ - አርብ: 8:00 ጥዋት - 8:00 ማታ",
+        "saturday": "ቅዳ: 9:00 ጥዋት - 6:00 ማታ",
+        "sunday": "እሁድ: 10:00 ጥዋት - 4:00 ማታ",
+        "emergency": "የድንገተኛ ድጋፍ: 24/7"
+      }
+    },
+    "motto": {
+      "title": "የእኛ መርህ",
+      "text": "የሚያምን ሁን",
+      "description": "የማመን መሰረት ሁሉም ታላቅ ጉዞ ነው"
+    },
+    "form": {
+      "title": "መልእክት ያስገቡ",
+      "fullName": "ሙሉ ስም *",
+      "fullNamePlaceholder": "ሙሉ ስምዎን ያስገቡ",
+      "email": "የኢሜይል አድራሻ *",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "የስልክ ቁጥር",
+      "phonePlaceholder": "+251 XXX XXX XXX",
+      "subject": "ርዕስ *",
+      "subjectPlaceholder": "ምን ልንረዳዎት እንችላለን?",
+      "message": "መልእክት *",
+      "messagePlaceholder": "ስለ ጥያቄዎ ተጨማሪ ይንገሩን...",
+      "submit": {
+        "button": "መልእክት ያስገቡ",
+        "processing": "መልእክት ይላካል..."
+      }
+    },
+    "map": {
+      "title": "ያናግሩን",
+      "companyName": "SkyEthio Travels & Cargo",
+      "address": "አቢነት፣ አዲስ አበባ፣ ኢትዮጵያ",
+      "mapNote": "የተስተካከለ ካርታ ማዋሃድ ይገኛል"
+    },
+    "success": {
+      "title": "መልእክት ተላክቷል!",
+      "message": "ያገኙን ስለሆነ እናመሰግናለን። በ24 ሰዓታት ውስጥ እንደያያለን።",
+      "sendAnother": "ሌላ መልእክት ያስገቡ"
+    },
+    "validation": {
+      "fullNameRequired": "ሙሉ ስም ያስፈልጋል።",
+      "emailRequired": "የሚሰራ ኢሜይል ያስፈልጋል።",
+      "subjectRequired": "ርዕስ ያስፈልጋል።",
+      "messageRequired": "እባክዎ ቢያንስ 10 ቁምፊዎች ያስገቡ።"
+    }
+  },
+  "toast": {
+    "success": {
+      "bookingSubmitted": "የማዘዣ ጥያቄ ተላክቷል!",
+      "visaSubmitted": "የቪዛ ማመልከቻ ተላክቷል!",
+      "adCreated": "ማስተዋወቂያ ተፈጥሯል!",
+      "adUpdated": "ማስተዋወቂያ ተሻሽሏል!",
+      "adDeleted": "ማስተዋወቂያ ተሰርዟል!",
+      "statusUpdated": "ሁኔታ ተሻሽሏል!",
+      "promotionalAdsImported": "የማስተዋወቂያ ማስተዋወቂያዎች ተገብረዋል!",
+      "databaseConnected": "የዳታቤዝ ግንኙነት ይሰራል!"
+    },
+    "error": {
+      "uploadPassportFailed": "የፓስፖርት ፋይል ማስገባት አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "uploadBankStatementFailed": "የባንክ መግለጫ ፋይል ማስገባት አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "submitBookingFailed": "የማዘዣ ጥያቄ ማስገባት አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "submitVisaFailed": "የቪዛ ማመልከቻ ማስገባት አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "unexpectedError": "ያልተጠበቀ ስህተት ተከስቷል። እባክዎ እንደገና ይሞክሩ።",
+      "saveAdFailed": "ማስተዋወቂያ ማስቀመጥ አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "updateStatusFailed": "ሁኔታ ማሻሻል አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "deleteAdFailed": "ማስተዋወቂያ ማስወገድ አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "importAdsFailed": "የማስተዋወቂያ ማስተዋወቂያዎች ማስገባት አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "databaseConnectionFailed": "የዳታቤዝ ግንኙነት አልተሳካለም። እባክዎ የእርስዎን ማዘጋጃ ያረጋግጡ።",
+      "databaseTestFailed": "የዳታቤዝ ፈተና አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "downloadFailed": "ማውረድ አልተሳካለም። እባክዎ እንደገና ይሞክሩ።",
+      "fixErrors": "እባክዎ ስህተቶችን ከማስቀመጥ በፊት ያስተካክሉ",
+      "loadDataFailed": "ዳታ ማስገባት አልተሳካለም"
+    }
+  },
+  "components": {
+    "socialMediaPopup": {
+      "title": "ያናግሩን",
+      "subtitle": "በደቂቃዎች ውስጥ እንመልሳለን",
+      "whatsapp": "WhatsApp",
+      "whatsappSubtitle": "ወቅታዊ ውይይት",
+      "telegram": "Telegram",
+      "telegramSubtitle": "ፈጣን እና ደህንነቱ የተጠበቀ",
+      "footer": "በተለመደ በደቂቃዎች ውስጥ እንመልሳለን",
+      "toggleButton": "የመገናኛ ፖፕ አፕ ለመቀየር",
+      "closeButton": "የመገናኛ ፖፕ አፕ ያዝጉ"
+    },
+    "adComponent": {
+      "close": "ያዝጉ",
+      "contentTypes": {
+        "offer": "የተሰጠ እርዳታ",
+        "promotional": "የማስተዋወቂያ",
+        "announcement": "ማስታወቂያ",
+        "service": "አገልግሎት"
+      },
+      "footer": "SkyEthio Travels"
     }
   },
   "common": {
@@ -176,6 +600,15 @@
     "previous": "የቀድሞ",
     "back": "ይመለሱ",
     "continue": "ይቀጥሉ",
-    "finish": "ያጠናቅቁ"
+    "finish": "ያጠናቅቁ",
+    "languageChooser": {
+      "title": "የእርስዎን ቋንቋ ይምረጡ",
+      "subtitle": "ለመጀመር የሚፈልጉትን ቋንቋ ይምረጡ",
+      "english": "እንግሊዘኛ",
+      "amharic": "አማርኛ",
+      "englishDescription": "ዓለም አቀፍ ቋንቋ",
+      "amharicDescription": "የኢትዮጵያ ቋንቋ",
+      "saveMessage": "የእርስዎ ምርጫ ለወደፊት ጊዜያት ይስቀመጣል"
+    }
   }
 }

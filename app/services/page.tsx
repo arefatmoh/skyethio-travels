@@ -1,64 +1,109 @@
+'use client'
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Hotel, Plane, Ticket, FileText, Globe, Package, Shield, Clock, Star, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function ServicesPage() {
+  const { t } = useTranslation()
+  
   const services = [
     {
       icon: Hotel,
-      title: "Hotel Booking",
-      description: "Luxury accommodations worldwide with exclusive rates and premium locations",
-      features: ["5-star hotels", "Best price guarantee", "24/7 concierge", "Flexible cancellation"],
+      title: t("services.serviceItems.hotelBooking.title"),
+      description: t("services.serviceItems.hotelBooking.description"),
+      features: [
+        t("services.serviceItems.hotelBooking.features.feature1"),
+        t("services.serviceItems.hotelBooking.features.feature2"),
+        t("services.serviceItems.hotelBooking.features.feature3"),
+        t("services.serviceItems.hotelBooking.features.feature4")
+      ],
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: Plane,
-      title: "Round Trip Tickets",
-      description: "Seamless round-trip experiences with flexible scheduling and premium airlines",
-      features: ["Flexible dates", "Premium airlines", "Seat selection", "Meal preferences"],
+      title: t("services.serviceItems.roundTripTickets.title"),
+      description: t("services.serviceItems.roundTripTickets.description"),
+      features: [
+        t("services.serviceItems.roundTripTickets.features.feature1"),
+        t("services.serviceItems.roundTripTickets.features.feature2"),
+        t("services.serviceItems.roundTripTickets.features.feature3"),
+        t("services.serviceItems.roundTripTickets.features.feature4")
+      ],
       gradient: "from-purple-500 to-pink-500",
     },
     {
       icon: Ticket,
-      title: "One Way Tickets",
-      description: "Flexible one-way travel options for spontaneous adventures and business trips",
-      features: ["Last-minute booking", "Multiple airlines", "Competitive prices", "Easy rebooking"],
+      title: t("services.serviceItems.oneWayTickets.title"),
+      description: t("services.serviceItems.oneWayTickets.description"),
+      features: [
+        t("services.serviceItems.oneWayTickets.features.feature1"),
+        t("services.serviceItems.oneWayTickets.features.feature2"),
+        t("services.serviceItems.oneWayTickets.features.feature3"),
+        t("services.serviceItems.oneWayTickets.features.feature4")
+      ],
       gradient: "from-green-500 to-teal-500",
     },
     {
       icon: Shield,
-      title: "Medical Slip",
-      description: "Comprehensive health documentation support for international travel",
-      features: ["Health certificates", "Vaccination records", "Medical clearance", "Expert guidance"],
+      title: t("services.serviceItems.medicalSlip.title"),
+      description: t("services.serviceItems.medicalSlip.description"),
+      features: [
+        t("services.serviceItems.medicalSlip.features.feature1"),
+        t("services.serviceItems.medicalSlip.features.feature2"),
+        t("services.serviceItems.medicalSlip.features.feature3"),
+        t("services.serviceItems.medicalSlip.features.feature4")
+      ],
       gradient: "from-red-500 to-orange-500",
     },
     {
       icon: Globe,
-      title: "Tourist Visa",
-      description: "Explore the world with ease through our comprehensive visa assistance",
-      features: ["Document preparation", "Application tracking", "Expert consultation", "Fast processing"],
+      title: t("services.serviceItems.touristVisa.title"),
+      description: t("services.serviceItems.touristVisa.description"),
+      features: [
+        t("services.serviceItems.touristVisa.features.feature1"),
+        t("services.serviceItems.touristVisa.features.feature2"),
+        t("services.serviceItems.touristVisa.features.feature3"),
+        t("services.serviceItems.touristVisa.features.feature4")
+      ],
       gradient: "from-indigo-500 to-purple-500",
     },
     {
       icon: FileText,
-      title: "Business Visa",
-      description: "Professional travel solutions for business expansion and corporate needs",
-      features: ["Corporate packages", "Priority processing", "Multiple entry", "Dedicated support"],
+      title: t("services.serviceItems.businessVisa.title"),
+      description: t("services.serviceItems.businessVisa.description"),
+      features: [
+        t("services.serviceItems.businessVisa.features.feature1"),
+        t("services.serviceItems.businessVisa.features.feature2"),
+        t("services.serviceItems.businessVisa.features.feature3"),
+        t("services.serviceItems.businessVisa.features.feature4")
+      ],
       gradient: "from-yellow-500 to-orange-500",
     },
     {
       icon: Package,
-      title: "Cargo Services",
-      description: "Reliable freight solutions for personal and commercial shipping needs",
-      features: ["Door-to-door delivery", "Real-time tracking", "Secure packaging", "Insurance coverage"],
+      title: t("services.serviceItems.cargoServices.title"),
+      description: t("services.serviceItems.cargoServices.description"),
+      features: [
+        t("services.serviceItems.cargoServices.features.feature1"),
+        t("services.serviceItems.cargoServices.features.feature2"),
+        t("services.serviceItems.cargoServices.features.feature3"),
+        t("services.serviceItems.cargoServices.features.feature4")
+      ],
       gradient: "from-teal-500 to-green-500",
     },
     {
       icon: Clock,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance for all your travel and cargo inquiries",
-      features: ["Live chat support", "Emergency assistance", "Multi-language", "Expert advisors"],
+      title: t("services.serviceItems.support24_7.title"),
+      description: t("services.serviceItems.support24_7.description"),
+      features: [
+        t("services.serviceItems.support24_7.features.feature1"),
+        t("services.serviceItems.support24_7.features.feature2"),
+        t("services.serviceItems.support24_7.features.feature3"),
+        t("services.serviceItems.support24_7.features.feature4")
+      ],
       gradient: "from-pink-500 to-red-500",
     },
   ]
@@ -75,17 +120,16 @@ export default function ServicesPage() {
 
         <div className="max-w-6xl mx-auto relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Premium Travel Services
+            {t("services.hero.title")}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Discover our comprehensive range of travel and cargo services designed to make your journey seamless and
-            memorable
+            {t("services.hero.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/book-ticket">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                Book Now
+                {t("services.hero.bookNow")}
               </Button>
             </Link>
             <Link href="/contact">
@@ -93,7 +137,7 @@ export default function ServicesPage() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 bg-transparent"
               >
-                Get Quote
+                {t("services.hero.getQuote")}
               </Button>
             </Link>
           </div>
@@ -118,9 +162,9 @@ export default function ServicesPage() {
                   {/* Badge */}
                   {(() => {
                     const badges: Record<string, { label: string; cls: string }> = {
-                      "Business Visa": { label: "Best for Business", cls: "bg-amber-500/20 text-amber-200 border-amber-400/30" },
-                      "Round Trip Tickets": { label: "Popular", cls: "bg-emerald-500/20 text-emerald-200 border-emerald-400/30" },
-                      "Tourist Visa": { label: "New", cls: "bg-fuchsia-500/20 text-fuchsia-200 border-fuchsia-400/30" },
+                      [t("services.serviceItems.businessVisa.title")]: { label: t("services.badges.bestForBusiness"), cls: "bg-amber-500/20 text-amber-200 border-amber-400/30" },
+                      [t("services.serviceItems.roundTripTickets.title")]: { label: t("services.badges.popular"), cls: "bg-emerald-500/20 text-emerald-200 border-emerald-400/30" },
+                      [t("services.serviceItems.touristVisa.title")]: { label: t("services.badges.new"), cls: "bg-fuchsia-500/20 text-fuchsia-200 border-fuchsia-400/30" },
                     }
                     const b = badges[service.title]
                     return b ? (
@@ -160,7 +204,7 @@ export default function ServicesPage() {
                         <Button
                           className={`w-full bg-gradient-to-r ${service.gradient} hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-white font-semibold`}
                         >
-                          Proceed
+                          {t("services.proceed")}
                         </Button>
                       </Link>
                     )
@@ -177,10 +221,10 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Why Choose SkyEthio?
+              {t("services.whyChooseUs.title")}
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Experience the difference with our premium services and dedicated support
+              {t("services.whyChooseUs.subtitle")}
             </p>
           </div>
 
@@ -188,9 +232,9 @@ export default function ServicesPage() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group text-center">
               <CardContent className="p-8">
                 <Star className="h-16 w-16 text-yellow-400 mx-auto mb-6 group-hover:text-yellow-300 transition-colors duration-300" />
-                <h3 className="text-white font-bold text-xl mb-4">Premium Quality</h3>
+                <h3 className="text-white font-bold text-xl mb-4">{t("services.whyChooseUs.premiumQuality.title")}</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  We partner with only the best airlines and hotels to ensure your experience exceeds expectations.
+                  {t("services.whyChooseUs.premiumQuality.description")}
                 </p>
               </CardContent>
             </Card>
@@ -198,9 +242,9 @@ export default function ServicesPage() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group text-center">
               <CardContent className="p-8">
                 <Shield className="h-16 w-16 text-green-400 mx-auto mb-6 group-hover:text-green-300 transition-colors duration-300" />
-                <h3 className="text-white font-bold text-xl mb-4">Trusted & Secure</h3>
+                <h3 className="text-white font-bold text-xl mb-4">{t("services.whyChooseUs.trustedSecure.title")}</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Your safety and security are our top priorities. All transactions are protected and encrypted.
+                  {t("services.whyChooseUs.trustedSecure.description")}
                 </p>
               </CardContent>
             </Card>
@@ -208,9 +252,9 @@ export default function ServicesPage() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group text-center">
               <CardContent className="p-8">
                 <Clock className="h-16 w-16 text-blue-400 mx-auto mb-6 group-hover:text-blue-300 transition-colors duration-300" />
-                <h3 className="text-white font-bold text-xl mb-4">24/7 Support</h3>
+                <h3 className="text-white font-bold text-xl mb-4">{t("services.whyChooseUs.support24_7.title")}</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Our dedicated support team is available around the clock to assist with any questions or concerns.
+                  {t("services.whyChooseUs.support24_7.description")}
                 </p>
               </CardContent>
             </Card>
@@ -222,14 +266,14 @@ export default function ServicesPage() {
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="backdrop-blur-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl p-12 border border-white/20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Experience Premium Travel?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t("services.cta.title")}</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Let us handle all your travel needs while you focus on what matters most - your journey and destination.
+              {t("services.cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book-ticket">
                 <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  Start Your Journey
+                  {t("services.cta.startJourney")}
                 </Button>
               </Link>
               <Link href="/contact">
@@ -237,7 +281,7 @@ export default function ServicesPage() {
                   variant="outline"
                   className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 bg-transparent"
                 >
-                  Contact Expert
+                  {t("services.cta.contactExpert")}
                 </Button>
               </Link>
             </div>

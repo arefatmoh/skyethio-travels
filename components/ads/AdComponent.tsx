@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Ad } from '@/lib/supabase'
 import { supabase } from '@/lib/supabase'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface AdComponentProps {
   ad: Ad
@@ -34,6 +35,7 @@ const getContentTypeColor = (contentType: string) => {
 }
 
 export const AdComponent: React.FC<AdComponentProps> = ({ ad, onClose, onTrackClick }) => {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
   const [autoCloseTimer, setAutoCloseTimer] = useState<NodeJS.Timeout | null>(null)
@@ -150,7 +152,7 @@ export const AdComponent: React.FC<AdComponentProps> = ({ ad, onClose, onTrackCl
             <button
               onClick={handleClose}
               className="absolute top-2 right-2 z-20 bg-black/30 hover:bg-black/50 text-white rounded-full p-2 transition-colors cursor-pointer"
-              title="Close"
+              title={t("components.adComponent.close")}
             >
               <X className="h-4 w-4" />
             </button>
@@ -174,7 +176,7 @@ export const AdComponent: React.FC<AdComponentProps> = ({ ad, onClose, onTrackCl
             <div className="flex items-center gap-2 mb-3">
               {icon}
               <span className="text-sm font-medium uppercase tracking-wide opacity-90">
-                {ad.content_type}
+                {t(`components.adComponent.contentTypes.${ad.content_type}`)}
               </span>
             </div>
 
@@ -212,7 +214,7 @@ export const AdComponent: React.FC<AdComponentProps> = ({ ad, onClose, onTrackCl
 
             {/* Footer */}
             <div className="mt-3 text-xs text-white/70 text-center">
-              SkyEthio Travels
+              {t("components.adComponent.footer")}
             </div>
           </div>
         </CardContent>

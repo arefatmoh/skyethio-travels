@@ -1,13 +1,16 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function useTranslation() {
-  const { t, locale, switchLanguage, isRTL } = useLanguage();
+  const { t, locale, switchLanguage, isRTL, showLanguageChooser, setShowLanguageChooser, isFirstTimeVisitor } = useLanguage();
   
   return {
     t,
     locale,
     switchLanguage,
     isRTL,
+    showLanguageChooser,
+    setShowLanguageChooser,
+    isFirstTimeVisitor,
     // Helper function for conditional translation
     tConditional: (key: string, condition: boolean, fallbackKey?: string) => {
       if (condition) {

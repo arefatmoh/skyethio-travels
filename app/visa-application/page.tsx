@@ -12,8 +12,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { FileText, Upload, User, CreditCard, Globe, Phone } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import { toast } from "sonner"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function VisaApplicationPage() {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -95,15 +97,15 @@ export default function VisaApplicationPage() {
     setIsLoading(true)
     
     const errs: Record<string, string> = {}
-    if (!visaType) errs.visaType = 'Visa type is required.'
-    if (!duration.trim()) errs.duration = 'Duration is required.'
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = 'Valid email is required.'
-    if (!fullName.trim()) errs.fullName = 'Full name is required.'
-    if (!age || Number(age) < 1) errs.age = 'Valid age is required.'
-    if (!birthYear || Number(birthYear) < 1900) errs.birthYear = 'Valid birth year is required.'
-    if (!passportNumber.trim()) errs.passportNumber = 'Passport number is required.'
-    if (!bankFile) errs.bankFile = 'Bank statement is required.'
-    if (!passportFile) errs.passportFile = 'Passport copy is required.'
+    if (!visaType) errs.visaType = t("visaApplication.validation.visaTypeRequired")
+    if (!duration.trim()) errs.duration = t("visaApplication.validation.durationRequired")
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = t("visaApplication.validation.emailRequired")
+    if (!fullName.trim()) errs.fullName = t("visaApplication.validation.fullNameRequired")
+    if (!age || Number(age) < 1) errs.age = t("visaApplication.validation.ageRequired")
+    if (!birthYear || Number(birthYear) < 1900) errs.birthYear = t("visaApplication.validation.birthYearRequired")
+    if (!passportNumber.trim()) errs.passportNumber = t("visaApplication.validation.passportRequired")
+    if (!bankFile) errs.bankFile = t("visaApplication.validation.bankFileRequired")
+    if (!passportFile) errs.passportFile = t("visaApplication.validation.passportFileRequired")
     
     if (Object.keys(errs).length > 0) { 
       setErrors(errs)
@@ -125,7 +127,7 @@ export default function VisaApplicationPage() {
 
         if (passportError) {
           console.error('Error uploading passport file:', passportError);
-          toast.error('Failed to upload passport file. Please try again.');
+          toast.error(t("toast.error.uploadPassportFailed"));
           setIsLoading(false);
           return;
         }
@@ -147,7 +149,7 @@ export default function VisaApplicationPage() {
 
         if (bankError) {
           console.error('Error uploading bank statement file:', bankError);
-          toast.error('Failed to upload bank statement file. Please try again.');
+          toast.error(t("toast.error.uploadBankStatementFailed"));
           setIsLoading(false);
           return;
         }
@@ -183,7 +185,7 @@ export default function VisaApplicationPage() {
 
       if (error) {
         console.error('Error saving visa application:', error)
-        toast.error('Failed to submit visa application. Please try again.')
+        toast.error(t("toast.error.submitVisaFailed"))
         setIsLoading(false)
         return
       }
@@ -191,13 +193,13 @@ export default function VisaApplicationPage() {
       // Clear form data from localStorage
       localStorage.removeItem(saveKey)
       
-      toast.success('Visa application submitted successfully!')
+      toast.success(t("toast.success.visaSubmitted"))
       setIsLoading(false)
       setIsSubmitted(true)
       
     } catch (error) {
       console.error('Error submitting visa application:', error)
-      toast.error('An unexpected error occurred. Please try again.')
+      toast.error(t("toast.error.unexpectedError"))
       setIsLoading(false)
     }
   }
@@ -212,16 +214,15 @@ export default function VisaApplicationPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-4">Application Submitted!</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{t("visaApplication.success.title")}</h2>
             <p className="text-gray-300 mb-6">
-              Your visa application has been received. Our team will review your documents and contact you within 2-3
-              business days.
+              {t("visaApplication.success.message")}
             </p>
             <Button
               onClick={() => setIsSubmitted(false)}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
             >
-              Submit Another Application
+              {t("visaApplication.success.submitAnother")}
             </Button>
           </CardContent>
         </Card>
@@ -466,15 +467,15 @@ export default function VisaApplicationPage() {
         <div className="mt-12 text-center">
           <Card className="bg-white/5 backdrop-blur-lg border-white/10 inline-block">
             <CardContent className="p-6">
-              <p className="text-gray-300 mb-2">Questions about your visa application?</p>
+              <p className="text-gray-300 mb-2">{t("visaApplication.contact.questions")}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="tel:+251962765453" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  +251 962 765 453
+                  {t("visaApplication.contact.phone1")}
                 </a>
                 <a href="tel:+251722765453" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  +251 722 765 453
+                  {t("visaApplication.contact.phone2")}
                 </a>
               </div>
             </CardContent>

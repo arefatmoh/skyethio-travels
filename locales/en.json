@@ -174,6 +174,416 @@
       "description": "This simple yet powerful principle guides every decision we make and every service we provide. Trust is the foundation of all great relationships, and we're honored to earn yours."
     }
   },
+  "services": {
+    "hero": {
+      "title": "Premium Travel Services",
+      "subtitle": "Discover our comprehensive range of travel and cargo services designed to make your journey seamless and memorable",
+      "bookNow": "Book Now",
+      "getQuote": "Get Quote"
+    },
+    "serviceItems": {
+      "hotelBooking": {
+        "title": "Hotel Booking",
+        "description": "Luxury accommodations worldwide with exclusive rates and premium locations",
+        "features": {
+          "feature1": "5-star hotels",
+          "feature2": "Best price guarantee",
+          "feature3": "24/7 concierge",
+          "feature4": "Flexible cancellation"
+        }
+      },
+      "roundTripTickets": {
+        "title": "Round Trip Tickets",
+        "description": "Seamless round-trip experiences with flexible scheduling and premium airlines",
+        "features": {
+          "feature1": "Flexible dates",
+          "feature2": "Premium airlines",
+          "feature3": "Seat selection",
+          "feature4": "Meal preferences"
+        }
+      },
+      "oneWayTickets": {
+        "title": "One Way Tickets",
+        "description": "Flexible one-way travel options for spontaneous adventures and business trips",
+        "features": {
+          "feature1": "Last-minute booking",
+          "feature2": "Multiple airlines",
+          "feature3": "Competitive prices",
+          "feature4": "Easy rebooking"
+        }
+      },
+      "medicalSlip": {
+        "title": "Medical Slip",
+        "description": "Comprehensive health documentation support for international travel",
+        "features": {
+          "feature1": "Health certificates",
+          "feature2": "Vaccination records",
+          "feature3": "Medical clearance",
+          "feature4": "Expert guidance"
+        }
+      },
+      "touristVisa": {
+        "title": "Tourist Visa",
+        "description": "Explore the world with ease through our comprehensive visa assistance",
+        "features": {
+          "feature1": "Document preparation",
+          "feature2": "Application tracking",
+          "feature3": "Expert consultation",
+          "feature4": "Fast processing"
+        }
+      },
+      "businessVisa": {
+        "title": "Business Visa",
+        "description": "Professional travel solutions for business expansion and corporate needs",
+        "features": {
+          "feature1": "Corporate packages",
+          "feature2": "Priority processing",
+          "feature3": "Multiple entry",
+          "feature4": "Dedicated support"
+        }
+      },
+      "cargoServices": {
+        "title": "Cargo Services",
+        "description": "Reliable freight solutions for personal and commercial shipping needs",
+        "features": {
+          "feature1": "Door-to-door delivery",
+          "feature2": "Real-time tracking",
+          "feature3": "Secure packaging",
+          "feature4": "Insurance coverage"
+        }
+      },
+      "support24_7": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock assistance for all your travel and cargo inquiries",
+        "features": {
+          "feature1": "Live chat support",
+          "feature2": "Emergency assistance",
+          "feature3": "Multi-language",
+          "feature4": "Expert advisors"
+        }
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose SkyEthio?",
+      "subtitle": "Experience the difference with our premium services and dedicated support",
+      "premiumQuality": {
+        "title": "Premium Quality",
+        "description": "We partner with only the best airlines and hotels to ensure your experience exceeds expectations."
+      },
+      "trustedSecure": {
+        "title": "Trusted & Secure",
+        "description": "Your safety and security are our top priorities. All transactions are protected and encrypted."
+      },
+      "support24_7": {
+        "title": "24/7 Support",
+        "description": "Our dedicated support team is available around the clock to assist with any questions or concerns."
+      }
+    },
+    "cta": {
+      "title": "Ready to Experience Premium Travel?",
+      "subtitle": "Let us handle all your travel needs while you focus on what matters most - your journey and destination.",
+      "startJourney": "Start Your Journey",
+      "contactExpert": "Contact Expert"
+    },
+    "badges": {
+      "bestForBusiness": "Best for Business",
+      "popular": "Popular",
+      "new": "New"
+    },
+    "proceed": "Proceed"
+  },
+  "bookTicket": {
+    "hero": {
+      "title": "Book Your Flight",
+      "subtitle": "Fill out the form below and we'll find you the best deals for your journey"
+    },
+    "form": {
+      "title": "Flight Booking Form",
+      "personalInfo": {
+        "title": "Personal Information",
+        "fullName": "Full Name *",
+        "fullNamePlaceholder": "Enter your full name",
+        "phone": "Phone Number *",
+        "phonePlaceholder": "+251 XXX XXX XXX",
+        "email": "Email Address *",
+        "emailPlaceholder": "your.email@example.com",
+        "passportNumber": "Passport Number *",
+        "passportNumberPlaceholder": "Enter passport number"
+      },
+      "tripType": {
+        "title": "Trip Type",
+        "roundTrip": "Round Trip",
+        "oneWay": "One Way"
+      },
+      "flightDetails": {
+        "title": "Flight Details",
+        "departure": "Departure City *",
+        "departurePlaceholder": "e.g., Addis Ababa",
+        "destination": "Destination *",
+        "destinationPlaceholder": "e.g., Dubai",
+        "departureDate": "Departure Date *",
+        "returnDate": "Return Date *",
+        "selectDate": "Select date",
+        "stayDays": "Stay: {days} day{days === 1 ? '' : 's'}",
+        "preferredAirline": "Preferred Airline",
+        "selectAirline": "Select airline",
+        "passengers": "Passengers",
+        "class": "Class",
+        "economy": "Economy",
+        "business": "Business",
+        "first": "First"
+      },
+      "additionalNotes": {
+        "title": "Additional Notes (Optional)",
+        "placeholder": "Any special requests or additional information..."
+      },
+      "passportUpload": {
+        "title": "Passport/ID (Optional)",
+        "clickToUpload": "Click to upload image or PDF",
+        "addFile": "Add File"
+      },
+      "submit": {
+        "button": "Submit Booking Request",
+        "processing": "Processing..."
+      }
+    },
+    "summary": {
+      "title": "Your Summary",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "passportNumber": "Passport #",
+      "route": "Route",
+      "dates": "Dates",
+      "passengers": "Passengers",
+      "class": "Class",
+      "airline": "Airline",
+      "passportPreview": "Passport Preview"
+    },
+    "success": {
+      "title": "Booking Submitted!",
+      "message": "Thank you for choosing SkyEthio Travels. We'll contact you within 24 hours to confirm your booking details.",
+      "bookAnother": "Book Another Ticket"
+    },
+    "contact": {
+      "needAssistance": "Need immediate assistance?",
+      "phone1": "+251 962 765 453",
+      "phone2": "+251 722 765 453"
+    },
+    "validation": {
+      "fullNameRequired": "Full name is required.",
+      "phoneRequired": "Phone number is required.",
+      "emailRequired": "Valid email is required.",
+      "passportRequired": "Passport number is required.",
+      "departureRequired": "Departure city is required.",
+      "destinationRequired": "Destination is required.",
+      "departureDateRequired": "Departure date is required.",
+      "returnDateRequired": "Return date is required."
+    }
+  },
+  "visaApplication": {
+    "hero": {
+      "title": "Visa Application",
+      "subtitle": "Apply for your visa with our expert assistance and streamlined process"
+    },
+    "form": {
+      "title": "Visa Application Form",
+      "visaInfo": {
+        "title": "Visa Information",
+        "visaType": "Visa Type *",
+        "selectVisaType": "Select visa type",
+        "touristVisa": "Tourist Visa",
+        "businessVisa": "Business Visa",
+        "duration": "Duration of Visa *",
+        "durationPlaceholder": "e.g., 30 days, 90 days"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "email": "Email Address *",
+        "emailPlaceholder": "your.email@example.com"
+      },
+      "requiredDocuments": {
+        "title": "Required Documents",
+        "bankStatement": "Bank Statement *",
+        "uploadBankStatement": "Upload your bank statement",
+        "fileTypes": "PDF or Image files only"
+      },
+      "passportDetails": {
+        "title": "Passport Details",
+        "fullName": "Full Name (as in passport) *",
+        "fullNamePlaceholder": "Enter full name",
+        "age": "Age *",
+        "agePlaceholder": "Enter age",
+        "birthYear": "Year of Birth *",
+        "birthYearPlaceholder": "YYYY",
+        "passportNumber": "Passport Number *",
+        "passportNumberPlaceholder": "Enter passport number",
+        "passportCopy": "Passport Copy *",
+        "uploadPassportCopy": "Upload passport copy"
+      },
+      "additionalInfo": {
+        "title": "Additional Information",
+        "placeholder": "Any additional information or special requirements..."
+      },
+      "submit": {
+        "button": "Submit Visa Application",
+        "processing": "Processing Application..."
+      }
+    },
+    "summary": {
+      "title": "Your Summary",
+      "visaType": "Visa Type",
+      "duration": "Duration",
+      "name": "Name",
+      "email": "Email",
+      "age": "Age",
+      "birthYear": "Birth Year",
+      "passportNumber": "Passport #",
+      "bankStatement": "Bank Statement",
+      "passportCopy": "Passport Copy"
+    },
+    "success": {
+      "title": "Application Submitted!",
+      "message": "Your visa application has been received. Our team will review your documents and contact you within 2-3 business days.",
+      "submitAnother": "Submit Another Application"
+    },
+    "contact": {
+      "questions": "Questions about your visa application?",
+      "phone1": "+251 962 765 453",
+      "phone2": "+251 722 765 453"
+    },
+    "validation": {
+      "visaTypeRequired": "Visa type is required.",
+      "durationRequired": "Duration is required.",
+      "emailRequired": "Valid email is required.",
+      "fullNameRequired": "Full name is required.",
+      "ageRequired": "Valid age is required.",
+      "birthYearRequired": "Valid birth year is required.",
+      "passportRequired": "Passport number is required.",
+      "bankFileRequired": "Bank statement is required.",
+      "passportFileRequired": "Passport copy is required."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with our team for any questions or assistance with your travel needs"
+    },
+    "contactInfo": {
+      "title": "Get In Touch",
+      "phone": {
+        "title": "24/7 Contact Numbers",
+        "phone1": "+251 962 765 453",
+        "phone2": "+251 722 765 453"
+      },
+      "email": {
+        "title": "Email Us",
+        "address": "info@skyethio.com"
+      },
+      "location": {
+        "title": "Office Location",
+        "address": "Abinet, Addis Ababa",
+        "country": "Ethiopia"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "weekdays": "Monday - Friday: 8:00 AM - 8:00 PM",
+        "saturday": "Saturday: 9:00 AM - 6:00 PM",
+        "sunday": "Sunday: 10:00 AM - 4:00 PM",
+        "emergency": "Emergency Support: 24/7"
+      }
+    },
+    "motto": {
+      "title": "Our Motto",
+      "text": "Be Trustworthy",
+      "description": "Trust is the foundation of every great journey"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+251 XXX XXX XXX",
+      "subject": "Subject *",
+      "subjectPlaceholder": "What can we help you with?",
+      "message": "Message *",
+      "messagePlaceholder": "Tell us more about your inquiry...",
+      "submit": {
+        "button": "Send Message",
+        "processing": "Sending Message..."
+      }
+    },
+    "map": {
+      "title": "Find Us",
+      "companyName": "SkyEthio Travels & Cargo",
+      "address": "Abinet, Addis Ababa, Ethiopia",
+      "mapNote": "Interactive map integration available"
+    },
+    "success": {
+      "title": "Message Sent!",
+      "message": "Thank you for contacting us. We'll get back to you within 24 hours.",
+      "sendAnother": "Send Another Message"
+    },
+    "validation": {
+      "fullNameRequired": "Full name is required.",
+      "emailRequired": "Valid email is required.",
+      "subjectRequired": "Subject is required.",
+      "messageRequired": "Please provide at least 10 characters."
+    }
+  },
+  "toast": {
+    "success": {
+      "bookingSubmitted": "Booking submitted successfully!",
+      "visaSubmitted": "Visa application submitted successfully!",
+      "adCreated": "Ad created successfully!",
+      "adUpdated": "Ad updated successfully!",
+      "adDeleted": "Ad deleted successfully!",
+      "statusUpdated": "Status updated successfully!",
+      "promotionalAdsImported": "Promotional ads imported successfully!",
+      "databaseConnected": "Database connection is working!"
+    },
+    "error": {
+      "uploadPassportFailed": "Failed to upload passport file. Please try again.",
+      "uploadBankStatementFailed": "Failed to upload bank statement file. Please try again.",
+      "submitBookingFailed": "Failed to submit booking. Please try again.",
+      "submitVisaFailed": "Failed to submit visa application. Please try again.",
+      "unexpectedError": "An unexpected error occurred. Please try again.",
+      "saveAdFailed": "Failed to save ad. Please try again.",
+      "updateStatusFailed": "Failed to update status. Please try again.",
+      "deleteAdFailed": "Failed to delete ad. Please try again.",
+      "importAdsFailed": "Failed to import promotional ads. Please try again.",
+      "databaseConnectionFailed": "Database connection failed. Please check your setup.",
+      "databaseTestFailed": "Database test failed. Please try again.",
+      "downloadFailed": "Download failed. Please try again.",
+      "fixErrors": "Please fix the errors before saving",
+      "loadDataFailed": "Failed to load data"
+    }
+  },
+  "components": {
+    "socialMediaPopup": {
+      "title": "Contact Us",
+      "subtitle": "We reply within minutes",
+      "whatsapp": "WhatsApp",
+      "whatsappSubtitle": "Chat instantly",
+      "telegram": "Telegram",
+      "telegramSubtitle": "Fast & secure",
+      "footer": "We typically respond within minutes",
+      "toggleButton": "Toggle contact popup",
+      "closeButton": "Close contact popup"
+    },
+    "adComponent": {
+      "close": "Close",
+      "contentTypes": {
+        "offer": "Offer",
+        "promotional": "Promotional",
+        "announcement": "Announcement",
+        "service": "Service"
+      },
+      "footer": "SkyEthio Travels"
+    }
+  },
   "common": {
     "scroll": "Scroll",
     "loading": "Loading...",
@@ -189,6 +599,15 @@
     "previous": "Previous",
     "back": "Back",
     "continue": "Continue",
-    "finish": "Finish"
+    "finish": "Finish",
+    "languageChooser": {
+      "title": "Choose Your Language",
+      "subtitle": "Select your preferred language to get started",
+      "english": "English",
+      "amharic": "Amharic",
+      "englishDescription": "International language",
+      "amharicDescription": "Ethiopian language",
+      "saveMessage": "Your choice will be saved for future visits"
+    }
   }
 }

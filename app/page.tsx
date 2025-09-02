@@ -9,7 +9,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import { initCounterAnimation } from '@/components/counter-animation'
 import { useTranslation } from "@/hooks/useTranslation"
-import LanguageTest from "@/components/LanguageTest"
 
 const logos = [
   { name: "Ethiopian Airlines", src: "/airlines/ethiopian airline.png", width: 400, height: 200 },
@@ -735,11 +734,9 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+              </div>
+    </section>
 
-      {/* Language Test Component - Remove after testing */}
-      <LanguageTest />
-    </div>
-  );
+  </div>
+);
 }

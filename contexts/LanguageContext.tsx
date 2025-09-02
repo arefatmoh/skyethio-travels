@@ -9,6 +9,9 @@ interface LanguageContextType {
   t: (key: string) => string;
   switchLanguage: (newLocale: Locale) => void;
   isRTL: boolean;
+  showLanguageChooser: boolean;
+  setShowLanguageChooser: (show: boolean) => void;
+  isFirstTimeVisitor: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -27,12 +30,20 @@ interface LanguageProviderProps {
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [locale, setLocaleState] = useState<Locale>('en');
+  const [showLanguageChooser, setShowLanguageChooser] = useState(false);
+  const [isFirstTimeVisitor, setIsFirstTimeVisitor] = useState(false);
 
   // Initialize locale from localStorage or default to English
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedLocale = localStorage.getItem('locale') as Locale;
-      if (savedLocale && (savedLocale === 'en' || savedLocale === 'am')) {
+      const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+      
+      if (!hasVisitedBefore) {
+        // First time visitor - show language chooser
+        setIsFirstTimeVisitor(true);
+        setShowLanguageChooser(true);
+      } else if (savedLocale && (savedLocale === 'en' || savedLocale === 'am')) {
         setLocaleState(savedLocale);
       }
     }
@@ -50,7 +61,12 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     // Save to localStorage
     if (typeof window !== 'undefined') {
       localStorage.setItem('locale', newLocale);
+      // Mark as visited
+      localStorage.setItem('hasVisitedBefore', 'true');
     }
+
+    // Hide language chooser after selection
+    setShowLanguageChooser(false);
 
     // For now, just update the state without changing the URL
     // URL routing will be implemented in a future phase
@@ -68,7 +84,10 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     setLocale: setLocaleState,
     t,
     switchLanguage,
-    isRTL
+    isRTL,
+    showLanguageChooser,
+    setShowLanguageChooser,
+    isFirstTimeVisitor
   };
 
   return (

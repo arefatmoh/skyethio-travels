@@ -15,8 +15,10 @@ import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { supabase } from "@/lib/supabase"
 import { toast } from "sonner"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function BookTicketPage() {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [tripType, setTripType] = useState<'round-trip' | 'one-way'>("round-trip")
@@ -114,14 +116,14 @@ export default function BookTicketPage() {
     
     // Inline validation
     const newErrors: Record<string, string> = {}
-    if (!fullName.trim()) newErrors.fullName = "Full name is required."
-    if (!phone.trim()) newErrors.phone = "Phone number is required."
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Valid email is required."
-    if (!passportNumber.trim()) newErrors.passportNumber = "Passport number is required."
-    if (!departure.trim()) newErrors.departure = "Departure city is required."
-    if (!destination.trim()) newErrors.destination = "Destination is required."
-    if (!dateDepart) newErrors.travelDate = "Departure date is required."
-    if (tripType === 'round-trip' && !dateReturn) newErrors.travelDate = "Return date is required."
+    if (!fullName.trim()) newErrors.fullName = t("bookTicket.validation.fullNameRequired")
+    if (!phone.trim()) newErrors.phone = t("bookTicket.validation.phoneRequired")
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = t("bookTicket.validation.emailRequired")
+    if (!passportNumber.trim()) newErrors.passportNumber = t("bookTicket.validation.passportRequired")
+    if (!departure.trim()) newErrors.departure = t("bookTicket.validation.departureRequired")
+    if (!destination.trim()) newErrors.destination = t("bookTicket.validation.destinationRequired")
+    if (!dateDepart) newErrors.travelDate = t("bookTicket.validation.departureDateRequired")
+    if (tripType === 'round-trip' && !dateReturn) newErrors.travelDate = t("bookTicket.validation.returnDateRequired")
     
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -142,7 +144,7 @@ export default function BookTicketPage() {
 
         if (passportError) {
           console.error('Error uploading passport file:', passportError);
-          toast.error('Failed to upload passport file. Please try again.');
+          toast.error(t("toast.error.uploadPassportFailed"));
           setIsLoading(false);
           return;
         }
@@ -182,7 +184,7 @@ export default function BookTicketPage() {
 
       if (error) {
         console.error('Error saving booking:', error)
-        toast.error('Failed to submit booking. Please try again.')
+        toast.error(t("toast.error.submitBookingFailed"))
         setIsLoading(false)
         return
       }
@@ -190,13 +192,13 @@ export default function BookTicketPage() {
       // Clear form data from localStorage
       localStorage.removeItem(saveKey)
       
-      toast.success('Booking submitted successfully!')
+      toast.success(t("toast.success.bookingSubmitted"))
       setIsLoading(false)
       setIsSubmitted(true)
       
     } catch (error) {
       console.error('Error submitting booking:', error)
-      toast.error('An unexpected error occurred. Please try again.')
+      toast.error(t("toast.error.unexpectedError"))
       setIsLoading(false)
     }
   }
@@ -211,16 +213,15 @@ export default function BookTicketPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-4">Booking Submitted!</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">{t("bookTicket.success.title")}</h2>
             <p className="text-gray-300 mb-6">
-              Thank you for choosing SkyEthio Travels. We'll contact you within 24 hours to confirm your booking
-              details.
+              {t("bookTicket.success.message")}
             </p>
             <Button
               onClick={() => setIsSubmitted(false)}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
             >
-              Book Another Ticket
+              {t("bookTicket.success.bookAnother")}
             </Button>
           </CardContent>
         </Card>
@@ -235,10 +236,10 @@ export default function BookTicketPage() {
         <div className="text-center mb-12 relative pt-8 md:pt-10">
           <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[28rem] h-[28rem] rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-500/20 blur-3xl" />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Book Your Flight
+            {t("bookTicket.hero.title")}
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Fill out the form below and we'll find you the best deals for your journey
+            {t("bookTicket.hero.subtitle")}
           </p>
         </div>
 
@@ -248,7 +249,7 @@ export default function BookTicketPage() {
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-white flex items-center gap-3">
                 <Plane className="h-6 w-6 text-blue-400" />
-                Flight Booking Form
+                {t("bookTicket.form.title")}
               </CardTitle>
             </CardHeader>
 
@@ -258,20 +259,20 @@ export default function BookTicketPage() {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-white flex items-center gap-2">
                   <User className="h-5 w-5 text-purple-400" />
-                  Personal Information
+                  {t("bookTicket.form.personalInfo.title")}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="fullName" className="text-white">
-                      Full Name *
+                      {t("bookTicket.form.personalInfo.fullName")}
                     </Label>
                     <Input
                       id="fullName"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="Enter your full name"
+                      placeholder={t("bookTicket.form.personalInfo.fullNamePlaceholder")}
                       aria-invalid={!!errors.fullName}
                     />
                     {errors.fullName && <p className="text-red-300 text-sm">{errors.fullName}</p>}
@@ -279,7 +280,7 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="phone" className="text-white">
-                      Phone Number *
+                      {t("bookTicket.form.personalInfo.phone")}
                     </Label>
                     <Input
                       id="phone"
@@ -287,7 +288,7 @@ export default function BookTicketPage() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="+251 XXX XXX XXX"
+                      placeholder={t("bookTicket.form.personalInfo.phonePlaceholder")}
                       aria-invalid={!!errors.phone}
                     />
                     {errors.phone && <p className="text-red-300 text-sm">{errors.phone}</p>}
@@ -295,7 +296,7 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-white">
-                      Email Address *
+                      {t("bookTicket.form.personalInfo.email")}
                     </Label>
                     <Input
                       id="email"
@@ -303,7 +304,7 @@ export default function BookTicketPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="your.email@example.com"
+                      placeholder={t("bookTicket.form.personalInfo.emailPlaceholder")}
                       aria-invalid={!!errors.email}
                     />
                     {errors.email && <p className="text-red-300 text-sm">{errors.email}</p>}
@@ -311,14 +312,14 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="passportNumber" className="text-white">
-                      Passport Number *
+                      {t("bookTicket.form.personalInfo.passportNumber")}
                     </Label>
                     <Input
                       id="passportNumber"
                       value={passportNumber}
                       onChange={(e) => setPassportNumber(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="Enter passport number"
+                      placeholder={t("bookTicket.form.personalInfo.passportNumberPlaceholder")}
                       aria-invalid={!!errors.passportNumber}
                     />
                     {errors.passportNumber && <p className="text-red-300 text-sm">{errors.passportNumber}</p>}
@@ -330,20 +331,20 @@ export default function BookTicketPage() {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-white flex items-center gap-2">
                   <Clock className="h-5 w-5 text-purple-400" />
-                  Trip Type
+                  {t("bookTicket.form.tripType.title")}
                 </h3>
 
                 <RadioGroup value={tripType} onValueChange={(v) => setTripType(v as any)} className="flex gap-6">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="round-trip" id="round-trip" className="border-white/30 text-blue-400" />
                     <Label htmlFor="round-trip" className="text-white">
-                      Round Trip
+                      {t("bookTicket.form.tripType.roundTrip")}
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="one-way" id="one-way" className="border-white/30 text-blue-400" />
                     <Label htmlFor="one-way" className="text-white">
-                      One Way
+                      {t("bookTicket.form.tripType.oneWay")}
                     </Label>
                   </div>
                 </RadioGroup>
@@ -353,20 +354,20 @@ export default function BookTicketPage() {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-white flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-purple-400" />
-                  Flight Details
+                  {t("bookTicket.form.flightDetails.title")}
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="departure" className="text-white">
-                      Departure City *
+                      {t("bookTicket.form.flightDetails.departure")}
                     </Label>
                     <Input
                       id="departure"
                       value={departure}
                       onChange={(e) => setDeparture(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="e.g., Addis Ababa"
+                      placeholder={t("bookTicket.form.flightDetails.departurePlaceholder")}
                       aria-invalid={!!errors.departure}
                     />
                     {errors.departure && <p className="text-red-300 text-sm">{errors.departure}</p>}
@@ -374,26 +375,26 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="destination" className="text-white">
-                      Destination *
+                      {t("bookTicket.form.flightDetails.destination")}
                     </Label>
                     <Input
                       id="destination"
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                       className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="e.g., Dubai"
+                      placeholder={t("bookTicket.form.flightDetails.destinationPlaceholder")}
                       aria-invalid={!!errors.destination}
                     />
                     {errors.destination && <p className="text-red-300 text-sm">{errors.destination}</p>}
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label className="text-white">Departure Date *</Label>
+                    <Label className="text-white">{t("bookTicket.form.flightDetails.departureDate")}</Label>
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button variant="outline" className="w-full justify-start bg-white/10 hover:bg-white/15 border-white/20 text-white rounded-xl h-11 backdrop-blur">
                           <CalendarIcon className="mr-2 h-4 w-4 text-white/70" />
-                          <span>{dateDepart ? formatHuman(dateDepart) : 'Select date'}</span>
+                          <span>{dateDepart ? formatHuman(dateDepart) : t("bookTicket.form.flightDetails.selectDate")}</span>
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="p-2 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl">
@@ -405,12 +406,12 @@ export default function BookTicketPage() {
 
                   {tripType === 'round-trip' && (
                     <div className="space-y-1.5">
-                      <Label className="text-white">Return Date *</Label>
+                      <Label className="text-white">{t("bookTicket.form.flightDetails.returnDate")}</Label>
                       <Popover>
                         <PopoverTrigger asChild>
                           <Button variant="outline" className="w-full justify-start bg-white/10 hover:bg-white/15 border-white/20 text-white rounded-xl h-11 backdrop-blur">
                             <CalendarIcon className="mr-2 h-4 w-4 text-white/70" />
-                            <span>{dateReturn ? formatHuman(dateReturn) : 'Select date'}</span>
+                            <span>{dateReturn ? formatHuman(dateReturn) : t("bookTicket.form.flightDetails.selectDate")}</span>
                           </Button>
                         </PopoverTrigger>
                         <PopoverContent className="p-2 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-2xl">
@@ -419,18 +420,18 @@ export default function BookTicketPage() {
                       </Popover>
                       {errors.travelDate && !dateReturn && <p className="text-red-300 text-xs">{errors.travelDate}</p>}
                       {stayDays !== null && dateDepart && dateReturn && (
-                        <p className="text-white/70 text-xs">Stay: {stayDays} day{stayDays === 1 ? '' : 's'}</p>
+                        <p className="text-white/70 text-xs">{t("bookTicket.form.flightDetails.stayDays").replace("{days}", stayDays.toString())}</p>
                       )}
                     </div>
                   )}
 
                   <div className="space-y-2">
                     <Label htmlFor="airline" className="text-white">
-                      Preferred Airline
+                      {t("bookTicket.form.flightDetails.preferredAirline")}
                     </Label>
                     <Select value={airline} onValueChange={setAirline}>
                       <SelectTrigger className="bg-white/10 border-white/20 text-white">
-                        <SelectValue placeholder="Select airline" />
+                        <SelectValue placeholder={t("bookTicket.form.flightDetails.selectAirline")} />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-800 border-white/20">
                         {airlines.map((airline) => (
@@ -448,7 +449,7 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="passengers" className="text-white">
-                      Passengers
+                      {t("bookTicket.form.flightDetails.passengers")}
                     </Label>
                     <Select value={String(passengers)} onValueChange={(v) => setPassengers(Number(v))}>
                       <SelectTrigger className="bg-white/10 border-white/20 text-white">
@@ -466,16 +467,16 @@ export default function BookTicketPage() {
 
                   <div className="space-y-2">
                     <Label htmlFor="class" className="text-white">
-                      Class
+                      {t("bookTicket.form.flightDetails.class")}
                     </Label>
                     <Select value={travelClass} onValueChange={(v) => setTravelClass(v as any)}>
                       <SelectTrigger className="bg-white/10 border-white/20 text-white">
-                        <SelectValue placeholder="Economy" />
+                        <SelectValue placeholder={t("bookTicket.form.flightDetails.economy")} />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-800 border-white/20">
-                        <SelectItem value="economy" className="text-white hover:bg-white/10">Economy</SelectItem>
-                        <SelectItem value="business" className="text-white hover:bg-white/10">Business</SelectItem>
-                        <SelectItem value="first" className="text-white hover:bg-white/10">First</SelectItem>
+                        <SelectItem value="economy" className="text-white hover:bg-white/10">{t("bookTicket.form.flightDetails.economy")}</SelectItem>
+                        <SelectItem value="business" className="text-white hover:bg-white/10">{t("bookTicket.form.flightDetails.business")}</SelectItem>
+                        <SelectItem value="first" className="text-white hover:bg-white/10">{t("bookTicket.form.flightDetails.first")}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -485,26 +486,26 @@ export default function BookTicketPage() {
               {/* Additional Notes */}
               <div className="space-y-2">
                 <Label htmlFor="notes" className="text-white">
-                  Additional Notes (Optional)
+                  {t("bookTicket.form.additionalNotes.title")}
                 </Label>
                 <Textarea
                   id="notes"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-blue-400 min-h-[100px]"
-                  placeholder="Any special requests or additional information..."
+                  placeholder={t("bookTicket.form.additionalNotes.placeholder")}
                 />
               </div>
 
               {/* Passport Upload - full clickable box */}
               <div className="space-y-2">
-                <Label className="text-white">Passport/ID (Optional)</Label>
+                <Label className="text-white">{t("bookTicket.form.passportUpload.title")}</Label>
                 <label htmlFor="passport" className="block cursor-pointer rounded-xl border border-dashed border-white/20 bg-white/5 p-4 hover:bg-white/10 transition-colors">
                   <div className="flex items-center justify-between gap-3">
                     <div className="text-white/80 text-sm truncate">
-                      {passportFile ? passportFile.name : 'Click to upload image or PDF'}
+                      {passportFile ? passportFile.name : t("bookTicket.form.passportUpload.clickToUpload")}
                     </div>
-                    <div className="text-white/70 text-xs rounded-full px-2 py-1 bg-white/10">Add File</div>
+                    <div className="text-white/70 text-xs rounded-full px-2 py-1 bg-white/10">{t("bookTicket.form.passportUpload.addFile")}</div>
                   </div>
                 </label>
                 <Input id="passport" type="file" accept="image/*,.pdf" className="hidden" onChange={(e) => setPassportFile(e.target.files?.[0] ?? null)} />
@@ -519,12 +520,12 @@ export default function BookTicketPage() {
                 {isLoading ? (
                   <div className="flex items-center gap-2">
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Processing...
+                    {t("bookTicket.form.submit.processing")}
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">
                     <Plane className="h-5 w-5" />
-                    Submit Booking Request
+                    {t("bookTicket.form.submit.button")}
                   </div>
                 )}
               </Button>
@@ -535,21 +536,21 @@ export default function BookTicketPage() {
           {/* Summary Sidebar */}
           <Card className="bg-white/5 backdrop-blur-lg border-white/10 sticky top-24">
             <CardHeader>
-              <CardTitle className="text-white">Your Summary</CardTitle>
+              <CardTitle className="text-white">{t("bookTicket.summary.title")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-white/90 text-sm">
-              <div className="flex justify-between"><span>Name</span><span>{fullName || '—'}</span></div>
-              <div className="flex justify-between"><span>Phone</span><span>{phone || '—'}</span></div>
-              <div className="flex justify-between"><span>Email</span><span className="truncate max-w-[12rem]">{email || '—'}</span></div>
-              <div className="flex justify-between"><span>Passport #</span><span className="truncate max-w-[12rem]">{passportNumber || '—'}</span></div>
-              <div className="flex justify-between"><span>Route</span><span>{departure || '—'} → {destination || '—'}</span></div>
-              <div className="flex justify-between"><span>Dates</span><span>{dateDepart ? formatHuman(dateDepart) : '—'}{tripType === 'round-trip' ? ` → ${dateReturn ? formatHuman(dateReturn) : '—'}` : ''}</span></div>
-              <div className="flex justify-between"><span>Passengers</span><span>{passengers}</span></div>
-              <div className="flex justify-between"><span>Class</span><span>{travelClass}</span></div>
-              <div className="flex justify-between"><span>Airline</span><span>{airline || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.name")}</span><span>{fullName || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.phone")}</span><span>{phone || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.email")}</span><span className="truncate max-w-[12rem]">{email || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.passportNumber")}</span><span className="truncate max-w-[12rem]">{passportNumber || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.route")}</span><span>{departure || '—'} → {destination || '—'}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.dates")}</span><span>{dateDepart ? formatHuman(dateDepart) : '—'}{tripType === 'round-trip' ? ` → ${dateReturn ? formatHuman(dateReturn) : '—'}` : ''}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.passengers")}</span><span>{passengers}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.class")}</span><span>{travelClass}</span></div>
+              <div className="flex justify-between"><span>{t("bookTicket.summary.airline")}</span><span>{airline || '—'}</span></div>
               {passportUrl && (
                 <div className="pt-2 mt-2 border-t border-white/10 space-y-2">
-                  <div className="text-white">Passport Preview</div>
+                  <div className="text-white">{t("bookTicket.summary.passportPreview")}</div>
                   {passportIsPdf ? (
                     <iframe src={passportUrl} className="w-full h-40 rounded-md bg-white" />
                   ) : (
@@ -565,15 +566,15 @@ export default function BookTicketPage() {
         <div className="mt-12 text-center">
           <Card className="bg-white/5 backdrop-blur-lg border-white/10 inline-block">
             <CardContent className="p-6">
-              <p className="text-gray-300 mb-2">Need immediate assistance?</p>
+              <p className="text-gray-300 mb-2">{t("bookTicket.contact.needAssistance")}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="tel:+251962765453" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  +251 962 765 453
+                  {t("bookTicket.contact.phone1")}
                 </a>
                 <a href="tel:+251722765453" className="text-blue-400 hover:text-blue-300 flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  +251 722 765 453
+                  {t("bookTicket.contact.phone2")}
                 </a>
               </div>
             </CardContent>
