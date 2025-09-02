@@ -96,6 +96,8 @@ export const AdForm: React.FC<AdFormProps> = ({ ad, onClose, onSave, isEditing =
 
     if (!formData.title.trim()) newErrors.title = 'Title is required'
     if (!formData.description.trim()) newErrors.description = 'Description is required'
+    if (!formData.ad_type) newErrors.ad_type = 'Ad type is required'
+    if (!formData.content_type) newErrors.content_type = 'Content type is required'
     if (!formData.cta_text.trim()) newErrors.cta_text = 'Call-to-action text is required'
     if (!formData.cta_url.trim()) newErrors.cta_url = 'Call-to-action URL is required'
     if (selectedPages.length === 0) newErrors.target_pages = 'At least one target page is required'
@@ -119,11 +121,21 @@ export const AdForm: React.FC<AdFormProps> = ({ ad, onClose, onSave, isEditing =
     setIsLoading(true)
     try {
       const adData = {
-        ...formData,
+        title: formData.title.trim(),
+        description: formData.description.trim(),
+        ad_type: formData.ad_type,
+        content_type: formData.content_type,
+        cta_text: formData.cta_text.trim(),
+        cta_url: formData.cta_url.trim(),
         target_pages: selectedPages,
+        target_audience: formData.target_audience,
+        priority: Number(formData.priority),
+        is_active: formData.is_active,
         max_impressions: formData.max_impressions ? Number(formData.max_impressions) : null,
         start_date: formData.start_date ? new Date(formData.start_date).toISOString() : null,
-        end_date: formData.end_date ? new Date(formData.end_date).toISOString() : null
+        end_date: formData.end_date ? new Date(formData.end_date).toISOString() : null,
+        image_url: formData.image_url.trim() || null,
+        video_url: formData.video_url.trim() || null
       }
 
       await onSave(adData)
@@ -324,6 +336,7 @@ export const AdForm: React.FC<AdFormProps> = ({ ad, onClose, onSave, isEditing =
                             </SelectItem>
                           </SelectContent>
                         </Select>
+                        {errors.ad_type && <p className="text-red-300 text-sm">{errors.ad_type}</p>}
                       </div>
 
                       <div className="space-y-2">
@@ -359,6 +372,7 @@ export const AdForm: React.FC<AdFormProps> = ({ ad, onClose, onSave, isEditing =
                             </SelectItem>
                           </SelectContent>
                         </Select>
+                        {errors.content_type && <p className="text-red-300 text-sm">{errors.content_type}</p>}
                       </div>
                     </div>
 

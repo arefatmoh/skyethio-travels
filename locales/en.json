@@ -1,0 +1,194 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "bookTicket": "Book Ticket",
+    "visa": "Visa",
+    "contact": "Contact",
+    "bookNow": "Book Now",
+    "callUs": "Call Us",
+    "homeDescription": "Return to our homepage",
+    "aboutDescription": "Learn about SkyEthio Travels & Cargo",
+    "servicesDescription": "Explore our premium travel services",
+    "bookTicketDescription": "Book your next flight with us",
+    "visaDescription": "Apply for travel visas with our assistance",
+    "contactDescription": "Get in touch with our team",
+    "submenu": {
+      "flightBooking": "Flight Booking",
+      "hotelReservations": "Hotel Reservations",
+      "cargoServices": "Cargo Services"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "SkyEthio Travels & Cargo",
+      "subtitle": "From Ethiopia to Your Desired Destination",
+      "bookTicket": "Book a Ticket",
+      "applyVisa": "Apply for Visa"
+    },
+    "announcement": {
+      "new": "New",
+      "specialFares": "Special fares this week — up to 25% off select routes.",
+      "bookNow": "Book now"
+    },
+    "statistics": {
+      "happyCustomers": "Happy Customers",
+      "successfulFlights": "Successful Flights",
+      "destinations": "Destinations",
+      "customerSupport": "Customer Support"
+    },
+    "services": {
+      "title": "Our Premium Services",
+      "subtitle": "Experience world-class travel services with cutting-edge technology and personalized care",
+      "hotelBooking": {
+        "title": "Hotel Booking",
+        "description": "Luxury accommodations worldwide",
+        "details": "Handpicked 4–5★ stays, flexible cancellation, and concierge recommendations."
+      },
+      "roundTripTickets": {
+        "title": "Round Trip Tickets",
+        "description": "Seamless round-trip experiences",
+        "details": "Optimized fares with smart layovers and free rebooking assistance."
+      },
+      "oneWayTickets": {
+        "title": "One Way Tickets",
+        "description": "Flexible one-way travel options",
+        "details": "Best-value one-way routes, baggage advisory, and visa guidance."
+      },
+      "medicalSlip": {
+        "title": "Medical Slip",
+        "description": "Health documentation support",
+        "details": "Help with airline medical forms and travel-ready documentation."
+      },
+      "touristVisa": {
+        "title": "Tourist Visa",
+        "description": "Explore the world with ease",
+        "details": "End-to-end application help, checklist, and appointment scheduling."
+      },
+      "businessVisa": {
+        "title": "Business Visa",
+        "description": "Professional travel solutions",
+        "details": "Priority handling, invitation letters, and multi-entry options."
+      },
+      "cargoServices": {
+        "title": "Cargo Services",
+        "description": "Reliable freight solutions",
+        "details": "Door-to-door, consolidation, and real-time tracking."
+      },
+      "support24_7": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock assistance",
+        "details": "Round-the-clock help via phone, WhatsApp, and Telegram."
+      },
+      "features": {
+        "fastProcessing": "Fast processing",
+        "expertGuidance": "Expert guidance",
+        "transparentPricing": "Transparent pricing"
+      },
+      "proceed": "Proceed",
+      "badges": {
+        "bestForBusiness": "Best for Business",
+        "popular": "Popular",
+        "new": "New"
+      }
+    },
+    "destinations": {
+      "title": "Trending Destinations",
+      "subtitle": "Discover the most sought-after destinations that travelers are choosing for their next adventure",
+      "highlights": "Highlights",
+      "explore": "Explore",
+      "viewAll": "View All Destinations"
+    },
+    "airlines": {
+      "title": "Partner Airlines",
+      "subtitle": "Fly with the world's most trusted airlines, offering premium services and unmatched reliability"
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "subtitle": "Join thousands of satisfied travelers who trust SkyEthio for their travel needs. Experience the difference of premium service.",
+      "learnMore": "Learn More About Us",
+      "contactUs": "Contact Us"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About SkyEthio Travels & Cargo",
+      "subtitle": "Your trusted partner in connecting Ethiopia to the world through premium travel and cargo services"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Founded with a vision to bridge Ethiopia with the global community, SkyEthio Travels & Cargo has been at the forefront of providing exceptional travel and logistics services. We understand that every journey is unique, and every cargo shipment carries dreams and aspirations.",
+      "paragraph2": "Our commitment to excellence, reliability, and customer satisfaction has made us a trusted name in the industry. From individual travelers to large corporations, we serve with the same dedication and attention to detail."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide everything we do",
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive for perfection in every service we provide, ensuring the highest standards of quality."
+      },
+      "customerFirst": {
+        "title": "Customer First",
+        "description": "Our customers are at the heart of everything we do. Their satisfaction is our primary goal."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "We build trust through consistent, dependable service that our clients can count on."
+      },
+      "globalReach": {
+        "title": "Global Reach",
+        "description": "Connecting Ethiopia to the world with comprehensive travel and cargo solutions."
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide world-class travel and cargo services that connect Ethiopia to global destinations, ensuring safe, reliable, and efficient solutions for all our clients.",
+      "points": [
+        "Customer-first service with 24/7 support",
+        "Trusted partnerships with world-leading airlines",
+        "Transparent pricing and flexible options"
+      ]
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To lead Ethiopia's travel and cargo industry through innovation, reliability, and unforgettable customer experiences.",
+      "points": [
+        "Seamless global connectivity",
+        "Digitally modern, human at heart",
+        "Sustainable growth and community impact"
+      ]
+    },
+    "team": {
+      "title": "Our Dedicated Team",
+      "subtitle": "Behind every successful journey is our team of experienced professionals who work tirelessly to ensure your travel and cargo needs are met with precision and care.",
+      "stats": {
+        "happyCustomers": "Happy Customers",
+        "destinations": "Destinations",
+        "customerSupport": "Customer Support"
+      }
+    },
+    "motto": {
+      "title": "Our Motto",
+      "text": "Be Trustworthy",
+      "description": "This simple yet powerful principle guides every decision we make and every service we provide. Trust is the foundation of all great relationships, and we're honored to earn yours."
+    }
+  },
+  "common": {
+    "scroll": "Scroll",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back",
+    "continue": "Continue",
+    "finish": "Finish"
+  }
+}

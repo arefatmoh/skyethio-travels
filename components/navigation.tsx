@@ -13,6 +13,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useTranslation } from "@/hooks/useTranslation"
+import { Locale, localeNames } from "@/locales"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,6 +25,7 @@ export default function Navigation() {
   const [progress, setProgress] = useState(0)
   const [showAnnouncement, setShowAnnouncement] = useState(true)
   const pathname = usePathname()
+  const { t, locale, switchLanguage } = useTranslation()
   
   // Handle scroll effect
   useEffect(() => {
@@ -55,44 +58,44 @@ export default function Navigation() {
   const navItems = [
     { 
       href: "/", 
-      label: "Home", 
+      label: t("navigation.home"), 
       icon: <Plane className="h-4 w-4" />,
-      description: "Return to our homepage",
+      description: t("navigation.homeDescription"),
     },
     { 
       href: "/about", 
-      label: "About", 
+      label: t("navigation.about"), 
       icon: <Info className="h-4 w-4" />,
-      description: "Learn about SkyEthio Travels & Cargo",
+      description: t("navigation.aboutDescription"),
     },
     { 
       href: "/services", 
-      label: "Services", 
+      label: t("navigation.services"), 
       icon: <Globe className="h-4 w-4" />,
-      description: "Explore our premium travel services",
+      description: t("navigation.servicesDescription"),
       submenu: [
-        { label: "Flight Booking", icon: <Plane className="h-4 w-4" /> },
-        { label: "Hotel Reservations", icon: <MapPin className="h-4 w-4" /> },
-        { label: "Cargo Services", icon: <PackageIcon className="h-4 w-4" /> },
+        { label: t("navigation.submenu.flightBooking"), icon: <Plane className="h-4 w-4" /> },
+        { label: t("navigation.submenu.hotelReservations"), icon: <MapPin className="h-4 w-4" /> },
+        { label: t("navigation.submenu.cargoServices"), icon: <PackageIcon className="h-4 w-4" /> },
       ]
     },
     { 
       href: "/book-ticket", 
-      label: "Book Ticket", 
+      label: t("navigation.bookTicket"), 
       icon: <Calendar className="h-4 w-4" />,
-      description: "Book your next flight with us",
+      description: t("navigation.bookTicketDescription"),
     },
     { 
       href: "/visa-application", 
-      label: "Visa", 
+      label: t("navigation.visa"), 
       icon: <FileText className="h-4 w-4" />,
-      description: "Apply for travel visas with our assistance",
+      description: t("navigation.visaDescription"),
     },
     { 
       href: "/contact", 
-      label: "Contact", 
+      label: t("navigation.contact"), 
       icon: <Phone className="h-4 w-4" />,
-      description: "Get in touch with our team",
+      description: t("navigation.contactDescription"),
     },
   ]
 
@@ -112,10 +115,10 @@ export default function Navigation() {
           )}>
             <div className="flex items-center justify-between text-xs sm:text-sm text-cyan-100/90 py-2">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-600/30 to-blue-600/30 text-cyan-200 border border-cyan-400/20">New</span>
+                <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-600/30 to-blue-600/30 text-cyan-200 border border-cyan-400/20">{t("homepage.announcement.new")}</span>
                 <p className="font-poppins">
-                  Special fares this week — up to 25% off select routes.
-                  <Link href="/book-ticket" className="ml-2 underline decoration-cyan-400/60 underline-offset-4 hover:text-white">Book now</Link>
+                  {t("homepage.announcement.specialFares")}
+                  <Link href="/book-ticket" className="ml-2 underline decoration-cyan-400/60 underline-offset-4 hover:text-white">{t("homepage.announcement.bookNow")}</Link>
                 </p>
               </div>
               <button aria-label="Dismiss announcement" onClick={() => setShowAnnouncement(false)} className="text-cyan-200/70 hover:text-white">
@@ -214,12 +217,22 @@ export default function Navigation() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-cyan-100 hover:text-white hover:bg-gradient-to-r hover:from-cyan-900/20 hover:to-blue-900/20">
                   <Globe className="h-4 w-4" />
-                  EN
+                  {localeNames[locale]}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-gradient-to-br from-slate-900/95 via-blue-950/95 to-slate-900/95 border border-cyan-500/20 text-cyan-100">
-                <DropdownMenuItem className="focus:bg-white/10">EN — English</DropdownMenuItem>
-                <DropdownMenuItem className="focus:bg-white/10">AM — አማርኛ</DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="focus:bg-white/10 cursor-pointer"
+                  onClick={() => switchLanguage('en')}
+                >
+                  EN — English
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="focus:bg-white/10 cursor-pointer"
+                  onClick={() => switchLanguage('am')}
+                >
+                  AM — አማርኛ
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -227,14 +240,14 @@ export default function Navigation() {
             <Link href="tel:+251900000000" aria-label="Call SkyEthio">
               <Button className="bg-white text-slate-900 hover:bg-white/90 rounded-full shadow-md border border-white/20 transition-all duration-300">
                 <Phone className="mr-2 h-4 w-4 text-cyan-600" />
-                <span className="font-poppins text-cyan-700">+251 90 000 0000</span>
+                <span className="font-poppins text-cyan-700">+251962765453</span>
               </Button>
             </Link>
             <Link href="/book-ticket">
               <Button className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white rounded-full shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 relative overflow-hidden group">
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
                 <Plane className="mr-2 h-4 w-4 animate-pulse" />
-                <span className="font-poppins">Book Now</span>
+                <span className="font-poppins">{t("navigation.bookNow")}</span>
               </Button>
             </Link>
           </div>
@@ -261,7 +274,7 @@ export default function Navigation() {
               <div className="flex items-center gap-2 px-2">
                 <Link href="tel:+251900000000" onClick={() => setIsOpen(false)} className="flex-1">
                   <Button variant="outline" className="w-full border-cyan-500/40 text-cyan-100 hover:text-white hover:border-cyan-400/60">
-                    <Phone className="h-4 w-4" /> Call Us
+                    <Phone className="h-4 w-4" /> {t("navigation.callUs")}
                   </Button>
                 </Link>
                 <DropdownMenu>
@@ -269,8 +282,18 @@ export default function Navigation() {
                     <Button variant="ghost" className="text-cyan-100 hover:text-white"><Globe className="h-4 w-4" /></Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="bg-gradient-to-br from-slate-900/95 via-blue-950/95 to-slate-900/95 border border-cyan-500/20 text-cyan-100">
-                    <DropdownMenuItem className="focus:bg-white/10">EN — English</DropdownMenuItem>
-                    <DropdownMenuItem className="focus:bg-white/10">AM — አማርኛ</DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="focus:bg-white/10 cursor-pointer"
+                      onClick={() => switchLanguage('en')}
+                    >
+                      EN — English
+                    </DropdownMenuItem>
+                    <DropdownMenuItem 
+                      className="focus:bg-white/10 cursor-pointer"
+                      onClick={() => switchLanguage('am')}
+                    >
+                      AM — አማርኛ
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
@@ -305,7 +328,7 @@ export default function Navigation() {
                 <Link href="/book-ticket" onClick={() => setIsOpen(false)}>
                   <Button className="w-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white py-6 rounded-lg shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-all duration-300">
                     <Plane className="mr-2 h-5 w-5 animate-pulse" />
-                    Book Your Ticket Now
+                    {t("navigation.bookNow")}
                   </Button>
                 </Link>
               </div>

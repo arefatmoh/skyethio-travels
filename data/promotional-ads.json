@@ -120,21 +120,7 @@
       "start_date": "2024-01-01",
       "end_date": "2024-12-31"
     },
-    {
-      "id": "c9d0e1f2-a3b4-5678-9abc-def012345678",
-      "title": "🛡️ Travel Insurance Included",
-      "description": "Book with us and get comprehensive travel insurance at no extra cost. Travel with confidence and peace of mind!",
-      "ad_type": "floating",
-      "content_type": "service",
-      "cta_text": "Book Securely",
-      "cta_url": "/book-ticket",
-      "target_pages": ["/", "/book-ticket"],
-      "target_audience": "all",
-      "priority": 3,
-      "image_url": null,
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
-    },
+    
     {
       "id": "d0e1f2a3-b4c5-6789-abcd-ef0123456789",
       "title": "📱 New Mobile App Available",
@@ -149,81 +135,6 @@
       "image_url": null,
       "start_date": "2024-04-01",
       "end_date": "2024-07-31"
-    },
-    {
-      "id": "e1f2a3b4-c5d6-789a-bcde-f01234567890",
-      "title": "🌙 Ramadan Travel Special",
-      "description": "Special rates for Umrah and family visits during Ramadan. Book your spiritual journey with us!",
-      "ad_type": "banner",
-      "content_type": "offer",
-      "cta_text": "Book Umrah",
-      "cta_url": "/book-ticket",
-      "target_pages": ["/", "/book-ticket", "/services"],
-      "target_audience": "all",
-      "priority": 5,
-      "image_url": null,
-      "start_date": "2024-03-10",
-      "end_date": "2024-04-10"
-    },
-    {
-      "id": "f2a3b4c5-d6e7-89ab-cdef-012345678901",
-      "title": "🎓 Student Travel Discount",
-      "description": "Special 15% discount for students with valid ID. Perfect for study abroad and educational trips!",
-      "ad_type": "slide-in",
-      "content_type": "offer",
-      "cta_text": "Student Booking",
-      "cta_url": "/book-ticket",
-      "target_pages": ["/", "/book-ticket"],
-      "target_audience": "all",
-      "priority": 3,
-      "image_url": null,
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
-    },
-    {
-      "id": "a3b4c5d6-e7f8-9abc-def0-123456789012",
-      "title": "🏆 Join Our Loyalty Program",
-      "description": "Earn points with every booking and redeem for free flights, upgrades, and exclusive benefits!",
-      "ad_type": "floating",
-      "content_type": "promotional",
-      "cta_text": "Join Now",
-      "cta_url": "/contact",
-      "target_pages": ["/", "/about"],
-      "target_audience": "returning_visitors",
-      "priority": 2,
-      "image_url": null,
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
-    },
-    {
-      "id": "b4c5d6e7-f8a9-bcde-f012-345678901234",
-      "title": "🦠 Safe Travel Guarantee",
-      "description": "We follow all international safety protocols. Your health and safety are our top priority during travel.",
-      "ad_type": "banner",
-      "content_type": "service",
-      "cta_text": "Safety Info",
-      "cta_url": "/about",
-      "target_pages": ["/", "/about"],
-      "target_audience": "all",
-      "priority": 1,
-      "image_url": null,
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
-    },
-    {
-      "id": "c5d6e7f8-a9b0-cdef-0123-456789012345",
-      "title": "🏖️ Weekend Getaway Deals",
-      "description": "Short on time? Our weekend packages to nearby destinations are perfect for a quick escape!",
-      "ad_type": "notification",
-      "content_type": "offer",
-      "cta_text": "Weekend Deals",
-      "cta_url": "/services",
-      "target_pages": ["/", "/services"],
-      "target_audience": "all",
-      "priority": 3,
-      "image_url": null,
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
     }
   ],
   "seasonal_campaigns": {
@@ -231,16 +142,6 @@
       "name": "Summer Travel Festival",
       "description": "Special summer campaign with multiple offers",
       "ads": ["a1b2c3d4-e5f6-7890-1234-567890abcdef", "d4e5f6a7-b8c9-0123-4567-890abcdef012", "e5f6a7b8-c9d0-1234-5678-90abcdef0123"]
-    },
-    "ramadan_2024": {
-      "name": "Ramadan Spiritual Journey",
-      "description": "Special rates for Umrah and family visits",
-      "ads": ["e1f2a3b4-c5d6-789a-bcde-f01234567890", "c9d0e1f2-a3b4-5678-9abc-def012345678"]
-    },
-    "back_to_school": {
-      "name": "Student Travel Season",
-      "description": "Special offers for students and educational travel",
-      "ads": ["f2a3b4c5-d6e7-89ab-cdef-012345678901", "f6a7b8c9-d0e1-2345-6789-0abcdef01234"]
     }
   },
   "targeting_rules": {

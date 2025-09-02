@@ -7,6 +7,7 @@ import SocialWrapper from "./social-wrapper"
 import { Toaster } from "@/components/ui/sonner"
 import { AdManager } from "@/components/ads/AdManager"
 import { AdImporter } from "@/components/ads/AdImporter"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
@@ -36,12 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning className={`${playfair.variable} ${poppins.variable} font-poppins`}>
-        <Navigation />
-        <main className="pt-16">{children}</main>
-        <SocialWrapper />
-        <AdImporter />
-        <AdManager currentPage="/" isNewVisitor={true} />
-        <Toaster />
+        <LanguageProvider>
+          <Navigation />
+          <main className="pt-16">{children}</main>
+          <SocialWrapper />
+          <AdImporter />
+          <AdManager currentPage="/" isNewVisitor={true} />
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   )

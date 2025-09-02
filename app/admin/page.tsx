@@ -10,6 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { AdForm } from '@/components/ads/AdForm';
+import { AdSystemGuide } from '@/components/ads/AdSystemGuide';
 import { toast } from 'sonner';
 
 interface Booking {
@@ -66,6 +68,8 @@ export default function AdminDashboard() {
   const [showBookingDetails, setShowBookingDetails] = useState(false);
   const [showVisaDetails, setShowVisaDetails] = useState(false);
   const [showAdForm, setShowAdForm] = useState(false);
+  const [showAdGuide, setShowAdGuide] = useState(false);
+  const [editingAd, setEditingAd] = useState<Ad | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [passportFile, setPassportFile] = useState<File | null>(null);
@@ -215,6 +219,91 @@ export default function AdminDashboard() {
     } catch (error) {
       console.error('Error importing ads:', error);
       toast.error('Failed to import promotional ads');
+    }
+  };
+
+  const testDatabaseConnection = async () => {
+    try {
+      // Test if ads table exists and is accessible
+      const { data, error } = await supabase
+        .from('ads')
+        .select('id, title, ad_type')
+        .limit(1);
+
+      if (error) {
+        console.error('Database connection test failed:', error);
+        toast.error('Database connection failed. Please check your setup.');
+        return false;
+      }
+
+      toast.success('Database connection is working!');
+      return true;
+    } catch (error) {
+      console.error('Database test error:', error);
+      toast.error('Database test failed');
+      return false;
+    }
+  };
+
+  const handleCreateAd = () => {
+    setEditingAd(null);
+    setShowAdForm(true);
+  };
+
+  const handleEditAd = (ad: Ad) => {
+    setEditingAd(ad);
+    setShowAdForm(true);
+  };
+
+  const handleSaveAd = async (adData: Partial<Ad>) => {
+    try {
+      // Ensure all required fields are present
+      const completeAdData = {
+        ...adData,
+        current_impressions: adData.current_impressions || 0,
+        click_count: adData.click_count || 0,
+        created_by: 'admin',
+        updated_at: new Date().toISOString()
+      };
+
+      if (editingAd) {
+        // Update existing ad
+        const { error } = await supabase
+          .from('ads')
+          .update(completeAdData)
+          .eq('id', editingAd.id);
+
+        if (error) {
+          console.error('Supabase update error:', error);
+          throw error;
+        }
+        toast.success('Ad updated successfully');
+      } else {
+        // Create new ad - ensure we have all required fields
+        const newAdData = {
+          ...completeAdData,
+          id: crypto.randomUUID(), // Generate UUID for new ad
+          created_at: new Date().toISOString()
+        };
+
+        const { error } = await supabase
+          .from('ads')
+          .insert([newAdData]);
+
+        if (error) {
+          console.error('Supabase insert error:', error);
+          throw error;
+        }
+        toast.success('Ad created successfully');
+      }
+
+      setShowAdForm(false);
+      setEditingAd(null);
+      fetchData();
+    } catch (error) {
+      console.error('Error saving ad:', error);
+      toast.error('Failed to save ad');
+      throw error;
     }
   };
 
@@ -411,7 +500,7 @@ export default function AdminDashboard() {
         </div>
 
         <Tabs defaultValue="bookings" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-white/10">
+          <TabsList className="grid w-full grid-cols-4 bg-white/10">
             <TabsTrigger 
               value="bookings" 
               className="text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:font-semibold"
@@ -429,6 +518,12 @@ export default function AdminDashboard() {
               className="text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:font-semibold"
             >
               Ads ({ads.length})
+            </TabsTrigger>
+            <TabsTrigger 
+              value="guide" 
+              className="text-white data-[state=active]:bg-white data-[state=active]:text-slate-900 data-[state=active]:font-semibold"
+            >
+              Ad Guide
             </TabsTrigger>
           </TabsList>
 
@@ -588,8 +683,8 @@ export default function AdminDashboard() {
                       Import Pre-made Ads
                     </Button>
                     <Button
-                      onClick={() => setShowAdForm(true)}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                      onClick={handleCreateAd}
+                      className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white"
                     >
                       Create New Ad
                     </Button>
@@ -631,6 +726,14 @@ export default function AdminDashboard() {
                             <Button
                               size="sm"
                               variant="outline"
+                              onClick={() => handleEditAd(ad)}
+                              className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                            >
+                              Edit
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
                               onClick={() => toggleAdStatus(ad.id, !ad.is_active)}
                               className={ad.is_active ? 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white' : 'border-green-500 text-green-500 hover:bg-green-500 hover:text-white'}
                             >
@@ -651,6 +754,10 @@ export default function AdminDashboard() {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="guide" className="mt-6">
+            <AdSystemGuide />
           </TabsContent>
         </Tabs>
 
@@ -781,8 +888,8 @@ export default function AdminDashboard() {
                                 alt="Passport Copy Preview" 
                                 className="max-w-full h-32 object-contain rounded-md bg-white/5 mx-auto"
                                 onError={(e) => {
-                                  e.currentTarget.style.display = 'none';
-                                  e.currentTarget.nextElementSibling!.style.display = 'block';
+                                  (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                  ((e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement).style.display = 'block';
                                 }}
                               />
                               <div className="text-center hidden">
@@ -988,8 +1095,8 @@ export default function AdminDashboard() {
                                   alt="Bank Statement Preview" 
                                   className="max-w-full h-32 object-contain rounded-md bg-white/5 mx-auto"
                                   onError={(e) => {
-                                    e.currentTarget.style.display = 'none';
-                                    e.currentTarget.nextElementSibling!.style.display = 'block';
+                                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                    ((e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement).style.display = 'block';
                                   }}
                                 />
                                 <div className="text-center hidden">
@@ -1076,8 +1183,8 @@ export default function AdminDashboard() {
                                   alt="Passport Copy Preview" 
                                   className="max-w-full h-32 object-contain rounded-md bg-white/5 mx-auto"
                                   onError={(e) => {
-                                    e.currentTarget.style.display = 'none';
-                                    e.currentTarget.nextElementSibling!.style.display = 'block';
+                                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                    ((e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement).style.display = 'block';
                                   }}
                                 />
                                 <div className="text-center hidden">
@@ -1163,6 +1270,19 @@ export default function AdminDashboard() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* Ad Form Modal */}
+        {showAdForm && (
+          <AdForm
+            ad={editingAd}
+            onClose={() => {
+              setShowAdForm(false);
+              setEditingAd(null);
+            }}
+            onSave={handleSaveAd}
+            isEditing={!!editingAd}
+          />
         )}
       </div>
     </div>

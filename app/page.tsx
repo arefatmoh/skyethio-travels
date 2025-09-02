@@ -8,6 +8,8 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from 'react'
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import { initCounterAnimation } from '@/components/counter-animation'
+import { useTranslation } from "@/hooks/useTranslation"
+import LanguageTest from "@/components/LanguageTest"
 
 const logos = [
   { name: "Ethiopian Airlines", src: "/airlines/ethiopian airline.png", width: 400, height: 200 },
@@ -31,6 +33,7 @@ export default function HomePage() {
   const [enableMotion, setEnableMotion] = useState(true)
   const heroRef = useRef<HTMLDivElement | null>(null)
   const [whoosh, setWhoosh] = useState(false)
+  const { t } = useTranslation()
   
   useEffect(() => {
     // Initialize counter animations
@@ -86,7 +89,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen md:min-h-screen flex items-start md:items-center justify-center overflow-hidden"
         onMouseMove={(e) => {
           if (!enableMotion) return
           const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
@@ -131,9 +134,9 @@ export default function HomePage() {
         </div>
 
         {/* Glassmorphism Hero Content */}
-        <div ref={heroRef} className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-[-2rem] md:mt-[-3rem] animate-in fade-in-50 slide-in-from-bottom-4">
+        <div ref={heroRef} className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20 md:pt-0 md:mt-[-3rem] animate-in fade-in-50 slide-in-from-bottom-4 w-full">
           <div
-            className="relative backdrop-blur-lg bg-white/10 rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl will-change-transform"
+            className="relative backdrop-blur-lg bg-white/10 rounded-3xl p-4 md:p-12 border border-white/20 shadow-2xl will-change-transform"
             style={enableMotion ? { transform: `perspective(1000px) rotateX(${mouse.y * -4}deg) rotateY(${mouse.x * 6}deg)` } : undefined}
           >
             <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/5 to-transparent"></div>
@@ -143,50 +146,50 @@ export default function HomePage() {
               className="pointer-events-none absolute -inset-x-10 top-1/3 h-24 skew-x-12 rounded-full bg-gradient-to-r from-transparent via-white/15 to-transparent blur-md"
               style={{ transform: `translateX(${whoosh ? '120%' : '-120%'})`, transition: 'transform 1200ms cubic-bezier(0.22,1,0.36,1)' }}
             />
-            <h1 className="heading-xl md:text-7xl font-playfair font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_6px_30px_rgba(0,0,0,0.3)]">
-              SkyEthio Travels & Cargo
+            <h1 className="text-3xl md:text-7xl font-playfair font-bold text-white mb-2 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_6px_30px_rgba(0,0,0,0.3)]">
+              {t("homepage.hero.title")}
             </h1>
-            <p className="body-lg md:text-2xl font-poppins text-gray-200 mb-6 font-light">
-              From Ethiopia to Your Desired Destination
+            <p className="text-sm md:text-2xl font-poppins text-gray-200 mb-4 md:mb-6 font-light">
+              {t("homepage.hero.subtitle")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center will-change-transform" style={enableMotion ? { transform: `perspective(800px) rotateX(${mouse.y * -2}deg) rotateY(${mouse.x * 3}deg)` } : undefined}>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center will-change-transform" style={enableMotion ? { transform: `perspective(800px) rotateX(${mouse.y * -2}deg) rotateY(${mouse.x * 3}deg)` } : undefined}>
               <Link href="/book-ticket">
-                <Button className="relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-poppins font-medium">
+                <Button className="relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 md:px-8 md:py-4 text-sm md:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-poppins font-medium">
                   <span className="pointer-events-none absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  <Ticket className="mr-2 h-5 w-5" />
-                  Book a Ticket
+                  <Ticket className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                  {t("homepage.hero.bookTicket")}
                 </Button>
               </Link>
               <Link href="/visa-application">
                 <Button
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 bg-transparent font-poppins font-medium"
+                  className="border-white/30 text-white hover:bg-white/10 px-6 py-3 md:px-8 md:py-4 text-sm md:text-lg rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 bg-transparent font-poppins font-medium"
                 >
-                  <FileText className="mr-2 h-5 w-5" />
-                  Apply for Visa
+                  <FileText className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                  {t("homepage.hero.applyVisa")}
                 </Button>
               </Link>
             </div>
           </div>
           
           {/* Statistics Section */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-100">
-              <div className="text-3xl font-playfair font-bold text-blue-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="customer-counter">1000+</div>
-              <div className="text-white font-poppins text-sm">Happy Customers</div>
+          <div className="mt-4 md:mt-8 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 md:p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-100">
+              <div className="text-xl md:text-3xl font-playfair font-bold text-blue-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="customer-counter">1000+</div>
+              <div className="text-white font-poppins text-xs md:text-sm">{t("homepage.statistics.happyCustomers")}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-200">
-              <div className="text-3xl font-playfair font-bold text-purple-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="flights-counter">500+</div>
-              <div className="text-white font-poppins text-sm">Successful Flights</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 md:p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-200">
+              <div className="text-xl md:text-3xl font-playfair font-bold text-purple-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="flights-counter">500+</div>
+              <div className="text-white font-poppins text-xs md:text-sm">{t("homepage.statistics.successfulFlights")}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-300">
-              <div className="text-3xl font-playfair font-bold text-pink-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="destinations-counter">15+</div>
-              <div className="text-white font-poppins text-sm">Destinations</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 md:p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-300">
+              <div className="text-xl md:text-3xl font-playfair font-bold text-pink-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="destinations-counter">15+</div>
+              <div className="text-white font-poppins text-xs md:text-sm">{t("homepage.statistics.destinations")}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-500">
-              <div className="text-3xl font-playfair font-bold text-cyan-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="support-counter">24/7</div>
-              <div className="text-white font-poppins text-sm">Customer Support</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 md:p-4 border border-white/20 transform hover:scale-105 transition-all duration-300 shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 delay-500">
+              <div className="text-xl md:text-3xl font-playfair font-bold text-cyan-300 mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" id="support-counter">24/7</div>
+              <div className="text-white font-poppins text-xs md:text-sm">{t("homepage.statistics.customerSupport")}</div>
             </div>
           </div>
         </div>
@@ -195,9 +198,9 @@ export default function HomePage() {
         <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-bounce"></div>
         <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full opacity-20 animate-pulse"></div>
 
-        {/* Scroll cue */}
-        <a href="#services" className="group absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors">
-          <span className="block text-xs tracking-widest uppercase mb-1">Scroll</span>
+        {/* Scroll cue - hidden on mobile */}
+        <a href="#services" className="group absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors hidden md:block">
+          <span className="block text-xs tracking-widest uppercase mb-1">{t("common.scroll")}</span>
           <span className="block w-5 h-8 rounded-full border border-white/40 relative overflow-hidden">
             <span className="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 rounded-full bg-white/70 animate-bounce"></span>
           </span>
@@ -215,23 +218,23 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-lg md:text-5xl font-playfair font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Our Premium Services
+              {t("homepage.services.title")}
             </h2>
             <p className="body-lg font-poppins text-gray-300 max-w-2xl mx-auto">
-              Experience world-class travel services with cutting-edge technology and personalized care
+              {t("homepage.services.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Hotel, title: "Hotel Booking", desc: "Luxury accommodations worldwide" },
-              { icon: Plane, title: "Round Trip Tickets", desc: "Seamless round-trip experiences" },
-              { icon: Ticket, title: "One Way Tickets", desc: "Flexible one-way travel options" },
-              { icon: Shield, title: "Medical Slip", desc: "Health documentation support" },
-              { icon: Globe, title: "Tourist Visa", desc: "Explore the world with ease" },
-              { icon: FileText, title: "Business Visa", desc: "Professional travel solutions" },
-              { icon: Package, title: "Cargo Services", desc: "Reliable freight solutions" },
-              { icon: Clock, title: "24/7 Support", desc: "Round-the-clock assistance" },
+              { icon: Hotel, title: t("homepage.services.hotelBooking.title"), desc: t("homepage.services.hotelBooking.description") },
+              { icon: Plane, title: t("homepage.services.roundTripTickets.title"), desc: t("homepage.services.roundTripTickets.description") },
+              { icon: Ticket, title: t("homepage.services.oneWayTickets.title"), desc: t("homepage.services.oneWayTickets.description") },
+              { icon: Shield, title: t("homepage.services.medicalSlip.title"), desc: t("homepage.services.medicalSlip.description") },
+              { icon: Globe, title: t("homepage.services.touristVisa.title"), desc: t("homepage.services.touristVisa.description") },
+              { icon: FileText, title: t("homepage.services.businessVisa.title"), desc: t("homepage.services.businessVisa.description") },
+              { icon: Package, title: t("homepage.services.cargoServices.title"), desc: t("homepage.services.cargoServices.description") },
+              { icon: Clock, title: t("homepage.services.support24_7.title"), desc: t("homepage.services.support24_7.description") },
             ].map((service, index) => (
               <Card
                 key={index}
@@ -348,10 +351,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="heading-lg md:text-5xl font-playfair font-bold text-white mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-              Trending Destinations
+              {t("homepage.destinations.title")}
             </h2>
             <p className="body-lg font-poppins text-gray-300 max-w-3xl mx-auto">
-              Discover the most sought-after destinations that travelers are choosing for their next adventure
+              {t("homepage.destinations.subtitle")}
             </p>
           </div>
 
@@ -557,7 +560,7 @@ export default function HomePage() {
           {/* View All Destinations CTA */}
           <div className="text-center mt-12">
             <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              View All Destinations
+              {t("homepage.destinations.viewAll")}
             </Button>
           </div>
         </div>
@@ -578,10 +581,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Partner Airlines
+              {t("homepage.airlines.title")}
             </h2>
             <p className="text-gray-300 text-base max-w-2xl mx-auto">
-              Fly with the world's most trusted airlines, offering premium services and unmatched reliability
+              {t("homepage.airlines.subtitle")}
             </p>
           </div>
 
@@ -712,15 +715,14 @@ export default function HomePage() {
       <section className="py-20 px-4 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div className="backdrop-blur-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl p-12 border border-white/20">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t("homepage.cta.title")}</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied travelers who trust SkyEthio for their travel needs. Experience the difference
-              of premium service.
+              {t("homepage.cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/about">
                 <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  Learn More About Us
+                  {t("homepage.cta.learnMore")}
                 </Button>
               </Link>
               <Link href="/contact">
@@ -728,13 +730,16 @@ export default function HomePage() {
                   variant="outline"
                   className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105 bg-transparent"
                 >
-                  Contact Us
+                  {t("homepage.cta.contactUs")}
                 </Button>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Language Test Component - Remove after testing */}
+      <LanguageTest />
     </div>
   );
 }
