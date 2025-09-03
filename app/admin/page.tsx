@@ -74,6 +74,8 @@ export default function AdminDashboard() {
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [passportFile, setPassportFile] = useState<File | null>(null);
   const [passportUrl, setPassportUrl] = useState<string | null>(null);
+  const [adActionLoadingId, setAdActionLoadingId] = useState<string | null>(null);
+  const [adActionType, setAdActionType] = useState<'toggle' | 'delete' | null>(null);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -173,6 +175,8 @@ export default function AdminDashboard() {
 
   const toggleAdStatus = async (id: string, isActive: boolean) => {
     try {
+      setAdActionLoadingId(id);
+      setAdActionType('toggle');
       const { error } = await supabase
         .from('ads')
         .update({ is_active: isActive })
@@ -181,10 +185,15 @@ export default function AdminDashboard() {
       if (error) throw error;
 
       toast.success(`Ad ${isActive ? 'activated' : 'deactivated'}`);
+      // Optimistic local update
+      setAds(prev => prev.map(a => (a.id === id ? { ...a, is_active: isActive } : a)));
       fetchData();
     } catch (error) {
       console.error('Error updating ad status:', error);
       toast.error('Failed to update ad status');
+    } finally {
+      setAdActionLoadingId(null);
+      setAdActionType(null);
     }
   };
 
@@ -192,6 +201,8 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this ad?')) return;
 
     try {
+      setAdActionLoadingId(id);
+      setAdActionType('delete');
       const { error } = await supabase
         .from('ads')
         .delete()
@@ -200,10 +211,15 @@ export default function AdminDashboard() {
       if (error) throw error;
 
       toast.success('Ad deleted successfully');
+      // Optimistic local removal
+      setAds(prev => prev.filter(a => a.id !== id));
       fetchData();
     } catch (error) {
       console.error('Error deleting ad:', error);
       toast.error('Failed to delete ad');
+    } finally {
+      setAdActionLoadingId(null);
+      setAdActionType(null);
     }
   };
 
@@ -736,15 +752,17 @@ export default function AdminDashboard() {
                               variant="outline"
                               onClick={() => toggleAdStatus(ad.id, !ad.is_active)}
                               className={ad.is_active ? 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white' : 'border-green-500 text-green-500 hover:bg-green-500 hover:text-white'}
+                              disabled={adActionLoadingId === ad.id && adActionType === 'toggle'}
                             >
-                              {ad.is_active ? 'Deactivate' : 'Activate'}
+                              {adActionLoadingId === ad.id && adActionType === 'toggle' ? 'Working...' : ad.is_active ? 'Deactivate' : 'Activate'}
                             </Button>
                             <Button
                               size="sm"
                               variant="destructive"
                               onClick={() => deleteAd(ad.id)}
+                              disabled={adActionLoadingId === ad.id && adActionType === 'delete'}
                             >
-                              Delete
+                              {adActionLoadingId === ad.id && adActionType === 'delete' ? 'Deleting...' : 'Delete'}
                             </Button>
                           </div>
                         </div>

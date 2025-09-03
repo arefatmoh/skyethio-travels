@@ -237,7 +237,7 @@ export default function Navigation() {
             </DropdownMenu>
 
             {/* Phone CTA */}
-            <Link href="tel:+251900000000" aria-label="Call SkyEthio">
+            <Link href="tel:+2519627654530000000" aria-label="Call SkyEthio">
               <Button className="bg-white text-slate-900 hover:bg-white/90 rounded-full shadow-md border border-white/20 transition-all duration-300">
                 <Phone className="mr-2 h-4 w-4 text-cyan-600" />
                 <span className="font-poppins text-cyan-700">+251962765453</span>
@@ -272,7 +272,7 @@ export default function Navigation() {
             <div className="px-3 pt-3 pb-4 space-y-2 bg-gradient-to-br from-slate-900/95 via-blue-950/95 to-slate-900/95 backdrop-blur-xl rounded-xl mt-2 border border-cyan-500/20 shadow-xl animate-in fade-in slide-in-from-top duration-300">
               {/* Quick actions */}
               <div className="flex items-center gap-2 px-2">
-                <Link href="tel:+251900000000" onClick={() => setIsOpen(false)} className="flex-1">
+                <Link href="tel:+2519627654530000000" onClick={() => setIsOpen(false)} className="flex-1">
                   <Button variant="outline" className="w-full border-cyan-500/40 text-cyan-100 hover:text-white hover:border-cyan-400/60">
                     <Phone className="h-4 w-4" /> {t("navigation.callUs")}
                   </Button>

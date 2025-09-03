@@ -11,7 +11,7 @@ export default function SocialMediaPopup() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
-  const phoneNumber = '+251965254514';
+  const phoneNumber = '+251962765453';
 
   // Open once per tab session unless dismissed
   useEffect(() => {
