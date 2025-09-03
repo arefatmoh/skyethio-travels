@@ -12,6 +12,7 @@ export default function SocialMediaPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const phoneNumber = '+251962765453';
+  const phoneDigits = phoneNumber.replace('+', '');
 
   // Open once per tab session unless dismissed
   useEffect(() => {
@@ -99,10 +100,21 @@ export default function SocialMediaPopup() {
 
             {/* Telegram */}
             <Link
-              href={`https://t.me/${phoneNumber.replace('+', '')}`}
+              href={`tg://resolve?phone=${phoneDigits}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between rounded-xl border border-sky-400/30 bg-sky-500/15 hover:bg-sky-500/20 transition-all px-3 py-2 text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                try {
+                  const tgUrl = `tg://resolve?phone=${phoneDigits}`;
+                  const webUrl = `https://web.telegram.org/k/#?tgaddr=resolve%3Fphone%3D${phoneDigits}`;
+                  window.open(tgUrl, '_blank');
+                  setTimeout(() => {
+                    window.open(webUrl, '_blank');
+                  }, 500);
+                } catch {}
+              }}
             >
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center rounded-full bg-sky-500 size-8 shadow-inner shadow-black/20">
